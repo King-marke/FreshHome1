@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MeiZhouYiHua {
     @RequestMapping("toIndex")
     public String toIndex(Model model){
+        //adsa
         return "FrontDesk/MeiZhouYiHua";
     }
 }
