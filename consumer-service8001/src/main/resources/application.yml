@@ -1,0 +1,19 @@
+server:
+  port: 8001
+spring:
+  mvc:
+    static-path-pattern: /**
+  resources:
+    static-locations: classpath:/templates/,classpath:/static/,classpath:/static/Manager/,classpath:/META-NF/resources/,
+      classpath:/resources/,classpath:/public/,classpath:/upload
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/
+    encoding: UTF-8
+    suffix: .html
+  application:
+    name: consumer-service8001
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:6001/eureka

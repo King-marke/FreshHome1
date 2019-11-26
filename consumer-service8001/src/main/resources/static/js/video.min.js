@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>404 - Not Found</title>
+<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+<style>
+body{
+	font-family: 'Microsoft Yahei', Verdana, arial, sans-serif;
+	font-size:14px;
+}
+a{text-decoration:none;color:#174B73;}
+a:hover{ text-decoration:none;color:#FF6600;}
+h2{
+	border-bottom:1px solid #DDD;
+	padding:8px 0;
+	font-size:25px;
+}
+.notice{
+    padding:10px;
+	margin:5px;
+	color:#666;
+	background:#FCFCFC;
+	border:1px solid #E0E0E0;
+}
+</style>
+</head>
+<body>
+    <div class="notice">
+    <h2>HTTP 404 - Not Found</h2>
+    <div >您可以选择 [ <A HREF="javascript:location.reload();">重试</A> ] [ <A HREF="javascript:history.back()">返回</A> ] 或者 [ <A HREF="/">回到首页</A> ]</div>
+    </div>
+</body>
+</html>

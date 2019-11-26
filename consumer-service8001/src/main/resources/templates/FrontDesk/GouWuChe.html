@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<!-- saved from url=(0031)https://www.xian.com/shop/cart/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>鲜家网 | 购物中心 &gt; 购物车</title>
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<link rel="stylesheet" type="text/css" href="./鲜家网 _ 购物中心 _ 购物车_files/animation.css">
+<link rel="stylesheet" type="text/css" href="./鲜家网 _ 购物中心 _ 购物车_files/common.css">
+<link rel="stylesheet" type="text/css" href="./鲜家网 _ 购物中心 _ 购物车_files/base.css">
+
+<script src="./鲜家网 _ 购物中心 _ 购物车_files/jquery-1.7.2.min.js.下载"></script>
+<script src="./鲜家网 _ 购物中心 _ 购物车_files/banner.js.下载"></script>
+<script src="./鲜家网 _ 购物中心 _ 购物车_files/lazyload.js.下载"></script>
+<script src="./鲜家网 _ 购物中心 _ 购物车_files/cutdown.js.下载"></script>
+
+<script type="text/javascript" src="./鲜家网 _ 购物中心 _ 购物车_files/jquery.showDialog.js.下载"></script>
+<link href="./鲜家网 _ 购物中心 _ 购物车_files/showDialog.css" rel="stylesheet" type="text/css">
+
+<script src="./鲜家网 _ 购物中心 _ 购物车_files/app.min.js.下载"></script>
+<script src="./鲜家网 _ 购物中心 _ 购物车_files/common.js.下载"></script>
+<script type="text/javascript">app.uri='';app.root='//www.xian.com';</script>
+	<script type="text/javascript">
+		$(function () {
+
+			$('.remove').on('click', function(){
+				var _this = this;
+
+				app.login.exec(function(){
+					app.article.favorite.add( $(_this).attr('aid'), function(result){
+						if( result.status ){
+
+							app.shop.cart.remove(
+								{
+									goods_id: $(_this).data('gid'),
+									product_id: $(_this).data('pid')
+								},
+								 function(result){
+									if( result.status ){
+										location.reload();
+									}
+								}
+							);
+
+						}
+					});
+				});
+
+			});
+
+			$(".table-num a").click(function(){
+				var v = $(this).text()=='-' ? -1 : 1;
+				$(this).parent().find("input[name=goods_num]").val(function(index,val){
+					val = parseInt(val) + v;
+					var max = parseInt($(this).data('max'));
+					if( val<1 ) val = 1;
+					if( val>max ) val = max;
+					update_goods(this, val, '');
+					return val;
+				});
+			});
+
+			$("input[type=checkbox][name=chkall]").click(function(){
+				$("input[type=checkbox][name=chk]").prop('checked', $(this).prop('checked'));
+				app.shop.cart.update(
+					{selected: $(this).prop('checked') ? 1 : 0},
+					function(result) {
+						if( result.status ){
+							$('.orderNum').text(result.data.total);
+							$('.orderPrice').text(result.data.real_price);
+							$('.pay').attr('href', function(){
+								return result.data.total > 0 ? $(this).data('href') : 'javascript:;';
+							});
+						}
+					}
+				);
+			});
+
+			$("input[name=goods_num]").change(function(){
+				update_goods($(this), $(this).val(), 1);
+			});
+
+			
+
+			$("input[type=checkbox][name=chk]").click(function(){
+				var input = $(this).parent().parent().parent().parent().parent().find('input[name=goods_num]');
+				update_goods(input, $(input).val(), $(this).prop('checked') ? 1 : 0);
+			});
+
+			function update_goods( input, num, selected ){
+				app.shop.cart.update(
+					{
+						goods_id: $(input).data('gid'), product_id: $(input).data('pid'), goods_num: num, selected:selected, only_goods: true
+					},
+					function(result) {
+						if( result.status ){
+							var product_id = $(input).data('pid');
+							//$('#note_' + product_id).text(result.data.items[product_id].sale_note);
+							$('#price_' + product_id).text(result.data.items[product_id].real_total);
+							$('.orderNum').text(result.data.total);
+							$('.orderPrice').text(result.data.real_price);
+							$('.pay').attr('href', function(){
+								return result.data.total > 0 ? $(this).data('href') : 'javascript:;';
+							});
+						}
+					}
+				);
+			}
+		});
+	</script>
+</head>
+<body>
+
+	
+<div class="topper">
+	<div class="wrap">
+		<div class="h-left">
+			<a href="javascript:;" title="收藏鲜花网"><img src="./鲜家网 _ 购物中心 _ 购物车_files/logo.png" width="200" height="90"></a>
+		</div>
+		<div class="h-right">
+			<a href="https://www.xian.com/">首页</a>
+			<a href="https://www.xian.com/xianhua/">鲜花</a>
+			<a href="https://www.xian.com/ysh/">永生花</a>
+			<a href="https://www.xian.com/lipin/">礼品</a>
+			<a href="https://www.xian.com/mzyh/">每周一花</a>
+			<a href="https://www.xian.com/huayu/">花语</a>
+			<a href="https://www.xian.com/group/">企业团购</a>
+			<span class="search">
+				<form action="https://www.xian.com/s.html" method="get" name="search">
+					<input type="hidden" name="o" value="0">
+					<div class="search-frame">
+						<input type="text" class="q" name="q" placeholder="请输入关键词搜索" autocomplete="off" value="">
+						<button type="submit" class="s" onclick="if($(&#39;.q&#39;).val()==&#39;&#39;) return false;"><i class="icon icon-search iconbounce"></i></button>
+					</div>
+				</form>
+			</span>
+			<a class="nb" href="https://www.xian.com/shop/cart/"><span class="shopcar iconbounce"><i class="icon icon-cart"></i><i class="icon-scar-num">1</i></span></a>
+			<span class="shop-other iconbounce"> <i class="icon icon-me"></i> </span>
+			<div class="h-me-select" style="display: none;">
+				<div class="arrow-up"></div>
+				<ul>
+					<li class="i_1 login"><a href="https://www.xian.com/member/index/" title="余笙う"><i class="i"></i>会员中心</a></li>
+					<li class="i_2"><a href="https://www.xian.com/shop/order/"><i class="i"></i>我的鲜家</a></li>
+					<li class="i_3"><a href="https://www.xian.com/member/favorite/list/"><i class="i"></i>我的收藏</a></li>
+					<li class="i_4"><a href="javscript:;" onclick="openChat();"><i class="i"></i>联系客服</a></li>
+					<li class="i_5"><a href="https://www.xian.com/mzyh/"><i class="i"></i>帮助中心</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="h-list" style="display: none;">
+	<div class="wrap">
+		<div class="h-list-l"><img src="./鲜家网 _ 购物中心 _ 购物车_files/h-list_10_img.png" alt=""></div>
+		<div class="h-list-r">
+			
+			<div class="h-list-rt">
+				<span>用途</span><span>销售价</span><span>花材</span><span>枝数</span>
+			</div>
+			<div class="h-list-rc">
+				
+				<span>
+					
+					<a href="https://www.xian.com/xianhua/aq/">爱情鲜花</a>
+					<a href="https://www.xian.com/xianhua/sr/">生日鲜花</a>
+					<a href="https://www.xian.com/xianhua/yq/">友情鲜花</a>
+					<a href="https://www.xian.com/xianhua/zn/">周年纪念</a>
+					<a href="https://www.xian.com/xianhua/hq/">婚庆鲜花</a>
+					<a href="https://www.xian.com/xianhua/zh/">祝贺鲜花</a>
+					<a href="https://www.xian.com/xianhua/tb/">探病慰问</a>
+					<a href="https://www.xian.com/xianhua/wh/">问候长辈</a>
+					<a href="https://www.xian.com/xianhua/sw/">商务鲜花</a>
+					<a href="https://www.xian.com/xianhua/dq/">道歉鲜花</a>
+				</span>
+				<span>
+					
+					<a href="https://www.xian.com/xianhua/jg0/">150元以内</a>
+					<a href="https://www.xian.com/xianhua/jg1/">150-199元</a>
+					<a href="https://www.xian.com/xianhua/jg2/">200-249元</a>
+					<a href="https://www.xian.com/xianhua/jg3/">250-399元</a>
+					<a href="https://www.xian.com/xianhua/jg4/">400-499元</a>
+					<a href="https://www.xian.com/xianhua/jg5/">500-599元</a>
+					<a href="https://www.xian.com/xianhua/jg6/">600-699元</a>
+					<a href="https://www.xian.com/xianhua/jg7/">700元以上</a>
+				</span>
+				<span>
+					
+					<a href="https://www.xian.com/xianhua/mg/">玫瑰花</a>
+					<a href="https://www.xian.com/xianhua/knx/">康乃馨</a>
+					<a href="https://www.xian.com/xianhua/bhh/">百合花</a>
+					<a href="https://www.xian.com/xianhua/xrk/">向日葵</a>
+					<a href="https://www.xian.com/xianhua/zll/">紫罗兰</a>
+					<a href="https://www.xian.com/xianhua/mtx/">满天星</a>
+				</span>
+				<span>
+					
+					<a href="https://www.xian.com/xianhua/zs13/">6枝</a>
+					<a href="https://www.xian.com/xianhua/zs16/">8枝</a>
+					<a href="https://www.xian.com/xianhua/zs19/">9枝</a>
+					<a href="https://www.xian.com/xianhua/zs25/">11枝</a>
+					<a href="https://www.xian.com/xianhua/zs29/">12枝</a>
+					<a href="https://www.xian.com/xianhua/zs33/">13枝</a>
+					<a href="https://www.xian.com/xianhua/zs99/">15枝</a>
+					<a href="https://www.xian.com/xianhua/zs16/">16枝</a>
+					<a href="https://www.xian.com/xianhua/zs19/">19枝</a>
+					<a href="https://www.xian.com/xianhua/zs21/">21枝</a>
+					<a href="https://www.xian.com/xianhua/zs25/">25枝</a>
+					<a href="https://www.xian.com/xianhua/zs29/">29枝</a>
+					<a href="https://www.xian.com/xianhua/zs33/">33枝</a>
+					<a href="https://www.xian.com/xianhua/zs66/">66枝</a>
+					<a href="https://www.xian.com/xianhua/zs99/">99枝以上</a>
+				</span>
+			</div>
+		</div>
+	</div>
+	<div class="wrap">
+		<div class="h-list-l"><img src="./鲜家网 _ 购物中心 _ 购物车_files/h-list_11_img.png" alt=""></div>
+		<div class="h-list-r">
+			
+			<div class="h-list-rt">
+				<span>类别</span><span>用途</span><span>销售价</span>
+			</div>
+			<div class="h-list-rc">
+				
+				<span>
+					
+					<a href="https://www.xian.com/ysh/jdhh/">经典花盒</a>
+					<a href="https://www.xian.com/ysh/ysph/">永生瓶花</a>
+					<a href="https://www.xian.com/ysh/jxmg/">巨型玫瑰</a>
+					<a href="https://www.xian.com/ysh/tsysh/">特色永生花</a>
+					<a href="https://www.xian.com/ysh/yshgz/">永生花公仔</a>
+				</span>
+				<span>
+					
+					<a href="https://www.xian.com/ysh/slr/">送恋人爱人</a>
+					<a href="https://www.xian.com/ysh/szb/">送父母长辈</a>
+					<a href="https://www.xian.com/ysh/sts/">送朋友同事</a>
+				</span>
+				<span>
+					
+					<a href="https://www.xian.com/ysh/jg1/">100-199元</a>
+					<a href="https://www.xian.com/ysh/jg2/">200-299元</a>
+					<a href="https://www.xian.com/ysh/jg3/">300-399元</a>
+					<a href="https://www.xian.com/ysh/jg4/">400-499元</a>
+					<a href="https://www.xian.com/ysh/jg5/">500-599元</a>
+					<a href="https://www.xian.com/ysh/jg6/">600-699元</a>
+					<a href="https://www.xian.com/ysh/jg7/">700元以上</a>
+				</span>
+			</div>
+		</div>
+	</div>
+	<div class="wrap">
+		<div class="h-list-l"><img src="./鲜家网 _ 购物中心 _ 购物车_files/h-list_15_img.png" alt=""></div>
+		<div class="h-list-r">
+			
+			<div class="h-list-rt">
+				<span>类别</span><span>用途</span><span>适合对象</span><span>销售价</span>
+			</div>
+			<div class="h-list-rc">
+				
+				<span>
+					
+					<a href="https://www.xian.com/lipin/sh/">首饰</a>
+					<a href="https://www.xian.com/lipin/yyh/">音乐盒</a>
+					<a href="https://www.xian.com/lipin/xiangxun/">香薰</a>
+					<a href="https://www.xian.com/lipin/ppgz/">公仔</a>
+					<a href="https://www.xian.com/lipin/cybj/">创意摆件</a>
+					<a href="https://www.xian.com/lipin/qkl/">巧克力</a>
+					<a href="https://www.xian.com/lipin/cyds/">灯饰</a>
+					<a href="https://www.xian.com/lipin/sjq/">水晶球</a>
+					<a href="https://www.xian.com/lipin/shuibei/">水杯</a>
+					<a href="https://www.xian.com/lipin/jiashiqi/">加湿器</a>
+					<a href="https://www.xian.com/lipin/anmoyi/">按摩仪</a>
+				</span>
+				<span>
+					
+					<a href="https://www.xian.com/lipin/srlp/">生日礼品</a>
+					<a href="https://www.xian.com/lipin/yhqalp/">约会礼品</a>
+					<a href="https://www.xian.com/lipin/jhlp/">结婚礼品</a>
+					<a href="https://www.xian.com/lipin/gxzflp/">祝福礼品</a>
+					<a href="https://www.xian.com/lipin/bftwlp/">拜访礼品</a>
+					<a href="https://www.xian.com/lipin/jhjyrlp/">纪念日礼品</a>
+					<a href="https://www.xian.com/lipin/qklp/">乔迁礼品</a>
+					<a href="https://www.xian.com/lipin/jjlp/">家居礼品</a>
+				</span>
+				<span>
+					
+					<a href="https://www.xian.com/lipin/snrqzlp/">送恋人</a>
+					<a href="https://www.xian.com/lipin/spytslp/">送朋友</a>
+					<a href="https://www.xian.com/lipin/skhlp/">送客户</a>
+					<a href="https://www.xian.com/lipin/snslp/">送老师</a>
+					<a href="https://www.xian.com/lipin/sxhlp/">送小孩</a>
+					<a href="https://www.xian.com/lipin/sndlp/">送领导</a>
+					<a href="https://www.xian.com/lipin/sfmzblp/">送长辈</a>
+				</span>
+				<span>
+					
+					<a href="https://www.xian.com/lipin/j1/">120元以下</a>
+					<a href="https://www.xian.com/lipin/j2/">120-180元</a>
+					<a href="https://www.xian.com/lipin/j3/">180-300元</a>
+					<a href="https://www.xian.com/lipin/j4/">300-500元</a>
+					<a href="https://www.xian.com/lipin/j5/">500元以上</a>
+				</span>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+	<div class="wrap">
+		<table class="table">
+			<caption>购物车</caption>
+			<thead>
+				<tr>
+					<th></th>
+					<th class="table-goods">商品名称</th>
+					<th>单价</th>
+					<th>数量</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				
+				<tr>
+					<td>
+						<label class="checkbox"><input type="checkbox" name="chk" value="1" checked=""><span></span></label>
+					</td>
+					<td class="table-goods">
+						<div class="table-img"><img data-lazy="//www.xian.com/upload/image/2019-06/14/16db5_177be.jpg" alt="" width="90" height="90" src="./鲜家网 _ 购物中心 _ 购物车_files/16db5_177be.jpg"></div>
+						<div class="table-info">
+						<span class="table-info-t1">永远守护你·19枝苏醒玫瑰韩式花束</span>
+						<span class="table-info-t2"></span>
+					</div>
+					</td>
+					<td class="table-price">¥<span id="price_1494">228.00</span></td>
+					<td class="table-num">
+						<a class="reduce" href="javascript:;">-</a>
+						<input class="price" name="goods_num" type="text" maxlength="127366" value="1" data-max="127366" data-gid="497" data-pid="1494" readonly="">
+						<a class="add" href="javascript:;">+</a>
+					</td>
+					<td class="remove" res="move" data-gid="497" data-pid="1494" aid="45746">✕</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<div class="total">
+			<div class="checkall">
+				<label class="checkbox"><input type="checkbox" name="chkall" value="1"><span></span>全选</label>
+				<span>已选商品 <span class="orderNum">1</span> 件</span>
+			</div>
+			<div class="totalpay">
+				<span>总计：<span class="totalnum">￥<span class="orderPrice">228.00</span></span></span>
+				<span><a class="pay" href="https://www.xian.com/shop/cart/order/" data-href="/shop/cart/order/">结算</a></span>
+			</div>
+		</div>
+
+	</div>
+
+	
+	<div class="contens">
+		<div class="h60"></div>
+		<div class="wrap">
+			<div class="select-bar">
+				<ul>
+					<li class="active">购买该商品的还购买了</li>
+					<li><a href="https://www.xian.com/member/favorite/list/">我的收藏</a></li>
+				</ul>
+			</div>
+			<div class="select-info comment">
+				<div class="infos fshot-content active">
+					
+					<div class="column-content-item ">
+						<div class="hover"><a href="https://www.xian.com/xianhua/44678.html"><img data-lazy="//www.xian.com/upload/image/2019-06/14/29c71_56ec.jpg" alt="" width="153" height="153" src="./鲜家网 _ 购物中心 _ 购物车_files/29c71_56ec.jpg"></a></div>
+						<div class="goods-info ">
+							<div class="fshot-content-t1">爱你久久·99枝红玫瑰纯美花束</div>
+							<div class="fshot-content-t2" style="color:red">￥498.00</div>
+						</div>
+					</div>
+					<div class="column-content-item ">
+						<div class="hover"><a href="https://www.xian.com/xianhua/45017.html"><img data-lazy="//www.xian.com/upload/image/2019-06/14/282cb_15cbd.jpg" alt="" width="153" height="153" src="./鲜家网 _ 购物中心 _ 购物车_files/282cb_15cbd.jpg"></a></div>
+						<div class="goods-info ">
+							<div class="fshot-content-t1">想念你的味道·33枝红玫瑰纯美花束</div>
+							<div class="fshot-content-t2" style="color:red">￥298.00</div>
+						</div>
+					</div>
+					<div class="column-content-item ">
+						<div class="hover"><a href="https://www.xian.com/xianhua/45059.html"><img data-lazy="//www.xian.com/upload/image/2019-06/14/2612b_1752e.jpg" alt="" width="153" height="153" src="./鲜家网 _ 购物中心 _ 购物车_files/2612b_1752e.jpg"></a></div>
+						<div class="goods-info ">
+							<div class="fshot-content-t1">爱情密码·13枝红玫瑰纯美花束</div>
+							<div class="fshot-content-t2" style="color:red">￥148.00</div>
+						</div>
+					</div>
+					<div class="column-content-item ">
+						<div class="hover"><a href="https://www.xian.com/xianhua/45738.html"><img data-lazy="//www.xian.com/upload/image/2019-06/14/1753a_53dd.jpg" alt="" width="153" height="153" src="./鲜家网 _ 购物中心 _ 购物车_files/1753a_53dd.jpg"></a></div>
+						<div class="goods-info ">
+							<div class="fshot-content-t1">一心一意·11枝红玫瑰韩式花束</div>
+							<div class="fshot-content-t2" style="color:red">￥138.00</div>
+						</div>
+					</div>
+					<div class="column-content-item ">
+						<div class="hover"><a href="https://www.xian.com/xianhua/45741.html"><img data-lazy="//www.xian.com/upload/image/2019-06/14/17331_c84e.jpg" alt="" width="153" height="153" src="./鲜家网 _ 购物中心 _ 购物车_files/17331_c84e.jpg"></a></div>
+						<div class="goods-info ">
+							<div class="fshot-content-t1">今生与你相伴·9枝红玫瑰韩式花束</div>
+							<div class="fshot-content-t2" style="color:red">￥128.00</div>
+						</div>
+					</div>
+					<div class="column-content-item last_child">
+						<div class="hover"><a href="https://www.xian.com/xianhua/45746.html"><img data-lazy="//www.xian.com/upload/image/2019-06/14/16db5_177be.jpg" alt="" width="153" height="153" src="./鲜家网 _ 购物中心 _ 购物车_files/16db5_177be.jpg"></a></div>
+						<div class="goods-info ">
+							<div class="fshot-content-t1">永远守护你·19枝苏醒玫瑰韩式花束</div>
+							<div class="fshot-content-t2" style="color:red">￥228.00</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="footer ">
+	<div class="wrap">
+		<div class=" footer-items">
+			<div class="footer-item footer-link bdsharebuttonbox">
+				<a class="hover footer-link-wx" href="javascript:;" data-cmd="weixin"></a>
+				<a class="hover footer-link-qq" href="javascript:;" data-cmd="qzone"></a>
+				<a class="hover footer-link-wb" href="javascript:;" data-cmd="tsina"></a>
+				<p>Copyright © 2018 鲜家 All rights reserved.<br>Powered by Bo Wen Technology Co., Ltd.<br>工信部备：辽ICP备18014953号-2<br>公安部备：21010202000602</p>
+			</div>
+			<div class="footer-item r_code">
+				<img data-lazy="//www.xian.com/theme/xian.com/default/static/img/r_code.png" alt="">
+				<p>微信关注鲜家，立享优惠</p>
+				<script type="text/javascript" src="./鲜家网 _ 购物中心 _ 购物车_files/mobile.js.下载"></script>
+			</div>
+			<div class="footer-item footer-others">
+				<div class="footer-other">
+					<div class="footer-other-link">
+						<span><a href="https://www.xian.com/service/210.html">售后服务</a></span>
+						<span><a href="https://www.xian.com/tongcheng/">同城鲜花</a></span>
+						<span><a href="https://www.xian.com/service/200.html">关于我们</a></span>
+					</div>
+					<div class="footer-other-tel">全国订购热线:<span>400-888-1571</span></div>
+					<div class="footer-other-tel">商务合作热线:<span>024-31128100</span></div>
+					<div class="footer-other-customs">
+						<a class="hover" href="javascript:;" onclick="openChat();">在线客服</a>
+					</div>
+				</div>
+			</div>
+		</div> 
+	</div>
+</div>
+<script type="text/javascript" src="./鲜家网 _ 购物中心 _ 购物车_files/leyu-mini.js.下载"></script><link rel="stylesheet" href="./鲜家网 _ 购物中心 _ 购物车_files/chat.min.css">
+<script src="./鲜家网 _ 购物中心 _ 购物车_files/jquery.bwChat.min.js.下载"></script>
+<script>
+function openChat(e){
+   $(e).bwChat({
+        group: 10080395,
+        channel: 33114,
+        colorStyle:'#ccaa7a',
+        logo:'/static/bwChat/img/logo.png',
+        emotpath:'/static/bwChat/img/emot/',
+        tip:'鲜家网',
+        h5Notify:false,
+        avator:'/static/bwChat/img/CustomerService.png',
+        mobile:false,
+        email:false,
+        phone:'400-888-1571',
+        work:'08:00 ~ 23:00',
+        obj:$('.cservice')
+    })
+}
+</script>
+
+	<div class="rside">
+	<div class="ibut cservice ">
+		<a href="javascript:;" onclick="openChat();" title="鲜家顾问" class="cservice-avator">
+			<p>鲜家顾问</p>
+			<p>竭诚为您服务</p>
+		</a>
+		<!--
+		<a class="cservice-box" href="javascript:;" onclick="openChat();">
+			<div class="cservice-box-content">
+				<div class="cservice-box-title">甄选优质鲜花，心意不打折扣</div>
+				<div class="cservice-box-sub">“花”点时间说爱ta</div>
+				<span class="cservice-box-close">✕</span>
+			</div>
+			<div class="cservice-box-btns">
+				<span class="cservice-box-btn1">选花咨询</span>
+				<span class="cservice-box-btn2">特价鲜花</span>
+			</div>
+			<div class="arrow-right"></div>
+		</a>
+		-->
+	</div>
+	<ul>
+		<li class="cart ">
+			<a href="https://www.xian.com/shop/cart/" title="购物车">
+				<i class="icon-rside icon-cart2"></i>
+				<span class="icon-scar-num">1</span>
+			</a>
+		</li>
+		<li class="ibut favorite ">
+			<a href="https://www.xian.com/member/favorite/list/" title="收藏鲜花">
+				<i class="icon-rside icon-favorite"></i>
+			</a>
+			<div class="rsidepop">
+				<a href="https://www.xian.com/member/favorite/list/">
+					收藏鲜花
+				</a>
+			</div>
+		</li>
+		<li class="ibut history ">
+			<a href="javascript:;" title="历史记录">
+				<i class="icon-rside icon-history"></i>
+			</a>
+		</li>
+		<li class="ibut qrcode ">
+			<a href="javascript:;" title="关注微信公众号">
+				<i class="icon-rside icon-qrcode"></i>
+			</a>
+			<div class="rsidepop">
+				<div class="fqrcode tc">
+					<p class="note">回复“礼物”有惊喜！" 活动多多，在鲜家遇见幸福</p>
+					<p class="img">
+						<img src="./鲜家网 _ 购物中心 _ 购物车_files/r_code.png" width="128" height="130">
+					</p>
+					<p class="gzh">公众号</p>
+				</div>
+			</div>
+		</li>
+		<li class="ibut expanded iconbounce">
+			<a href="javascript:;" onclick="$(function () {$(&#39;html&#39;).animate({ scrollTop: 0 }, 500);$(&#39;body&#39;).animate({scrollTop: 0}, 500);})" title="顶部">
+			<i class="icon-rside icon-expanded"></i>顶部</a>
+		</li>
+	</ul>
+</div>
+
+
+</body></html>

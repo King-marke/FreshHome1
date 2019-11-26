@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>每周一花,鲜花包月订购,99元4束_鲜家网</title>
+	<meta name="keywords" content="每周一花,鲜花包月" />
+	<meta name="description" content="99元鲜花包月套餐（每周送1次，一个月送4次）。鲜花产自云南，地处低纬度高海拔地区，全年光照，充分吸收紫外线，让产自云南的鲜花花朵硕大、色彩艳丽，让人爱不释手，带着大自然的气息，只为拥抱你！" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<link rel="stylesheet" type="text/css" th:href="@{/css/animation.css}" href="../theme/xian.com/default/static/css/animation.css" tppabs="https://www.xian.com/theme/xian.com/default/static/css/animation.css">
+<link rel="stylesheet" type="text/css" th:href="@{/css/common.css}" href="../theme/xian.com/default/static/css/common.css" tppabs="https://www.xian.com/theme/xian.com/default/static/css/common.css">
+<link rel="stylesheet" type="text/css" th:href="@{/css/base.css}" href="../theme/xian.com/default/static/css/base.css" tppabs="https://www.xian.com/theme/xian.com/default/static/css/base.css">
+
+<script th:src="@{/js/jquery-1.7.2.min.js}" src="../theme/xian.com/default/static/js/jquery-1.7.2.min.js" tppabs="https://www.xian.com/theme/xian.com/default/static/js/jquery-1.7.2.min.js"></script>
+<script th:src="@{/js/banner.js}" src="../theme/xian.com/default/static/js/banner.js" tppabs="https://www.xian.com/theme/xian.com/default/static/js/banner.js"></script>
+<script th:src="@{/js/lazyload.js}" src="../theme/xian.com/default/static/js/lazyload.js" tppabs="https://www.xian.com/theme/xian.com/default/static/js/lazyload.js"></script>
+<script th:src="@{/js/cutdown.js}" src="../theme/xian.com/default/static/js/cutdown.js" tppabs="https://www.xian.com/theme/xian.com/default/static/js/cutdown.js"></script>
+
+<script type="text/javascript" th:src="@{/js/jquery.showDialog.js}" src="../theme/xian.com/default/static/js/jquery.showDialog.js" tppabs="https://www.xian.com/theme/xian.com/default/static/js/jquery.showDialog.js"></script>
+<link th:href="@{/css/showDialog.css}" href="../theme/xian.com/default/static/css/showDialog.css" tppabs="https://www.xian.com/theme/xian.com/default/static/css/showDialog.css" rel="stylesheet" type="text/css" />
+
+<script th:src="@{/js/app.min.js}" src="../theme/xian.com/default/static/js/app.min.js" tppabs="https://www.xian.com/theme/xian.com/default/static/js/app.min.js"></script>
+<script th:src="@{/js/common.js}" src="../theme/xian.com/default/static/js/common.js" tppabs="https://www.xian.com/theme/xian.com/default/static/js/common.js"></script>
+<script type="text/javascript">app.uri='';app.root='../index.htm'/*tpa=https://www.xian.com/*/;</script>
+</head>
+<body>
+	
+<div class="topper">
+	<div class="wrap">
+		<div class="h-left">
+			<a href="javascript:;" title="收藏鲜花网"><img src="https://www.xian.com/theme/xian.com/default/static/img/logo.png" tppabs="https://www.xian.com/theme/xian.com/default/static/img/logo.png" width="200" height="90"></a>
+		</div>
+		<div class="h-right">
+			<a href="../index.htm" tppabs="https://www.xian.com/" >首页</a>
+			<a href="../xianhua/index.htm" tppabs="https://www.xian.com/xianhua/" >鲜花</a>
+			<a href="../ysh/index.htm" tppabs="https://www.xian.com/ysh/" >永生花</a>
+			<a href="../lipin/index.htm" tppabs="https://www.xian.com/lipin/" >礼品</a>
+			<a href="index.htm" tppabs="https://www.xian.com/mzyh/"  class="active">每周一花</a>
+			<a href="../huayu/index.htm" tppabs="https://www.xian.com/huayu/" >花语</a>
+			<a href="../group/index.htm" tppabs="https://www.xian.com/group/" >企业团购</a>
+			<span class="search">
+				<form action="https://www.xian.com/s.html" method="get" name="search">
+					<input type="hidden" name="o" value="0">
+					<div class="search-frame">
+						<input type="text" class="q" name="q" placeholder="请输入关键词搜索" autocomplete="off" value="">
+						<button type="submit" class="s" onclick="if($('.q').val()=='') return false;" ><i class="icon icon-search iconbounce"></i></button>
+					</div>
+				</form>
+			</span>
+			<a class="nb" href="../shop/cart/index.htm" tppabs="https://www.xian.com/shop/cart/"><span class="shopcar iconbounce"><i class="icon icon-cart"></i><i class="icon-scar-num">0</i></span></a>
+			<span class="shop-other iconbounce"> <i class="icon icon-me"></i> </span>
+			<div class="h-me-select" style="display: none;">
+				<div class="arrow-up"></div>
+				<ul>
+					<li class="i_1 login"><a href="../member/login/index.htm" tppabs="https://www.xian.com/member/login/"><i class="i"></i>登录/注册</a></li>
+					<li class="i_2"><a href="../member/login/-url=https---www.xian.com-shop-order-.htm" tppabs="https://www.xian.com/shop/order/"><i class="i"></i>我的鲜家</a></li>
+					<li class="i_3"><a href="javascript:if(confirm('https://www.xian.com/member/login/?url=https%3A%2F%2Fwww.xian.com%2Fmember%2Ffavorite%2Flist%2F  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ������, �����������, ����Ŀ����ֹͣ��  \n\n�����ڷ������ϴ���?'))window.location='https://www.xian.com/member/login/?url=https%3A%2F%2Fwww.xian.com%2Fmember%2Ffavorite%2Flist%2F'" tppabs="https://www.xian.com/member/favorite/list/"><i class="i"></i>我的收藏</a></li>
+					<li class="i_4"><a href="javscript:;" onclick="openChat();"><i class="i"></i>联系客服</a></li>
+					<li class="i_5"><a href="index.htm" tppabs="https://www.xian.com/mzyh/"><i class="i"></i>帮助中心</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="h-list" style="display: none;">
+	<div class="wrap">
+		<div class="h-list-l"><img src="../theme/xian.com/default/static/img/temp/h-list_10_img.png" tppabs="https://www.xian.com/theme/xian.com/default/static/img/temp/h-list_10_img.png" alt=""></div>
+		<div class="h-list-r">
+			
+			<div class="h-list-rt">
+				<span>用途</span><span>销售价</span><span>花材</span><span>枝数</span>
+			</div>
+			<div class="h-list-rc">
+				
+				<span>
+					
+					<a href="../xianhua/aq/index.htm" tppabs="https://www.xian.com/xianhua/aq/">爱情鲜花</a>
+					<a href="../xianhua/sr/index.htm" tppabs="https://www.xian.com/xianhua/sr/">生日鲜花</a>
+					<a href="../xianhua/yq/index.htm" tppabs="https://www.xian.com/xianhua/yq/">友情鲜花</a>
+					<a href="../xianhua/zn/index.htm" tppabs="https://www.xian.com/xianhua/zn/">周年纪念</a>
+					<a href="../xianhua/hq/index.htm" tppabs="https://www.xian.com/xianhua/hq/">婚庆鲜花</a>
+					<a href="../xianhua/zh/index.htm" tppabs="https://www.xian.com/xianhua/zh/">祝贺鲜花</a>
+					<a href="../xianhua/tb/index.htm" tppabs="https://www.xian.com/xianhua/tb/">探病慰问</a>
+					<a href="../xianhua/wh/index.htm" tppabs="https://www.xian.com/xianhua/wh/">问候长辈</a>
+					<a href="../xianhua/sw/index.htm" tppabs="https://www.xian.com/xianhua/sw/">商务鲜花</a>
+					<a href="../xianhua/dq/index.htm" tppabs="https://www.xian.com/xianhua/dq/">道歉鲜花</a>
+				</span>
+				<span>
+					
+					<a href="../xianhua/jg0/index.htm" tppabs="https://www.xian.com/xianhua/jg0/">150元以内</a>
+					<a href="../xianhua/jg1/index.htm" tppabs="https://www.xian.com/xianhua/jg1/">150-199元</a>
+					<a href="../xianhua/jg2/index.htm" tppabs="https://www.xian.com/xianhua/jg2/">200-249元</a>
+					<a href="../xianhua/jg3/index.htm" tppabs="https://www.xian.com/xianhua/jg3/">250-399元</a>
+					<a href="../xianhua/jg4/index.htm" tppabs="https://www.xian.com/xianhua/jg4/">400-499元</a>
+					<a href="../xianhua/jg5/index.htm" tppabs="https://www.xian.com/xianhua/jg5/">500-599元</a>
+					<a href="../xianhua/jg6/index.htm" tppabs="https://www.xian.com/xianhua/jg6/">600-699元</a>
+					<a href="../xianhua/jg7/index.htm" tppabs="https://www.xian.com/xianhua/jg7/">700元以上</a>
+				</span>
+				<span>
+					
+					<a href="../xianhua/mg/index.htm" tppabs="https://www.xian.com/xianhua/mg/">玫瑰花</a>
+					<a href="../xianhua/knx/index.htm" tppabs="https://www.xian.com/xianhua/knx/">康乃馨</a>
+					<a href="../xianhua/bhh/index.htm" tppabs="https://www.xian.com/xianhua/bhh/">百合花</a>
+					<a href="../xianhua/xrk/index.htm" tppabs="https://www.xian.com/xianhua/xrk/">向日葵</a>
+					<a href="../xianhua/zll/index.htm" tppabs="https://www.xian.com/xianhua/zll/">紫罗兰</a>
+					<a href="../xianhua/mtx/index.htm" tppabs="https://www.xian.com/xianhua/mtx/">满天星</a>
+				</span>
+				<span>
+					
+					<a href="../xianhua/zs13/index.htm" tppabs="https://www.xian.com/xianhua/zs13/">6枝</a>
+					<a href="../xianhua/zs16/index.htm" tppabs="https://www.xian.com/xianhua/zs16/">8枝</a>
+					<a href="../xianhua/zs19/index.htm" tppabs="https://www.xian.com/xianhua/zs19/">9枝</a>
+					<a href="../xianhua/zs25/index.htm" tppabs="https://www.xian.com/xianhua/zs25/">11枝</a>
+					<a href="../xianhua/zs29/index.htm" tppabs="https://www.xian.com/xianhua/zs29/">12枝</a>
+					<a href="../xianhua/zs33/index.htm" tppabs="https://www.xian.com/xianhua/zs33/">13枝</a>
+					<a href="../xianhua/zs99/index.htm" tppabs="https://www.xian.com/xianhua/zs99/">15枝</a>
+					<a href="../xianhua/zs16/index.htm" tppabs="https://www.xian.com/xianhua/zs16/">16枝</a>
+					<a href="../xianhua/zs19/index.htm" tppabs="https://www.xian.com/xianhua/zs19/">19枝</a>
+					<a href="../xianhua/zs21/index.htm" tppabs="https://www.xian.com/xianhua/zs21/">21枝</a>
+					<a href="../xianhua/zs25/index.htm" tppabs="https://www.xian.com/xianhua/zs25/">25枝</a>
+					<a href="../xianhua/zs29/index.htm" tppabs="https://www.xian.com/xianhua/zs29/">29枝</a>
+					<a href="../xianhua/zs33/index.htm" tppabs="https://www.xian.com/xianhua/zs33/">33枝</a>
+					<a href="../xianhua/zs66/index.htm" tppabs="https://www.xian.com/xianhua/zs66/">66枝</a>
+					<a href="../xianhua/zs99/index.htm" tppabs="https://www.xian.com/xianhua/zs99/">99枝以上</a>
+				</span>
+			</div>
+		</div>
+	</div>
+	<div class="wrap">
+		<div class="h-list-l"><img src="../theme/xian.com/default/static/img/temp/h-list_11_img.png" tppabs="https://www.xian.com/theme/xian.com/default/static/img/temp/h-list_11_img.png" alt=""></div>
+		<div class="h-list-r">
+			
+			<div class="h-list-rt">
+				<span>类别</span><span>用途</span><span>销售价</span>
+			</div>
+			<div class="h-list-rc">
+				
+				<span>
+					
+					<a href="../ysh/jdhh/index.htm" tppabs="https://www.xian.com/ysh/jdhh/">经典花盒</a>
+					<a href="../ysh/ysph/index.htm" tppabs="https://www.xian.com/ysh/ysph/">永生瓶花</a>
+					<a href="../ysh/jxmg/index.htm" tppabs="https://www.xian.com/ysh/jxmg/">巨型玫瑰</a>
+					<a href="../ysh/tsysh/index.htm" tppabs="https://www.xian.com/ysh/tsysh/">特色永生花</a>
+					<a href="../ysh/yshgz/index.htm" tppabs="https://www.xian.com/ysh/yshgz/">永生花公仔</a>
+				</span>
+				<span>
+					
+					<a href="../ysh/slr/index.htm" tppabs="https://www.xian.com/ysh/slr/">送恋人爱人</a>
+					<a href="../ysh/szb/index.htm" tppabs="https://www.xian.com/ysh/szb/">送父母长辈</a>
+					<a href="../ysh/sts/index.htm" tppabs="https://www.xian.com/ysh/sts/">送朋友同事</a>
+				</span>
+				<span>
+					
+					<a href="../ysh/jg1/index.htm" tppabs="https://www.xian.com/ysh/jg1/">100-199元</a>
+					<a href="../ysh/jg2/index.htm" tppabs="https://www.xian.com/ysh/jg2/">200-299元</a>
+					<a href="../ysh/jg3/index.htm" tppabs="https://www.xian.com/ysh/jg3/">300-399元</a>
+					<a href="../ysh/jg4/index.htm" tppabs="https://www.xian.com/ysh/jg4/">400-499元</a>
+					<a href="../ysh/jg5/index.htm" tppabs="https://www.xian.com/ysh/jg5/">500-599元</a>
+					<a href="../ysh/jg6/index.htm" tppabs="https://www.xian.com/ysh/jg6/">600-699元</a>
+					<a href="../ysh/jg7/index.htm" tppabs="https://www.xian.com/ysh/jg7/">700元以上</a>
+				</span>
+			</div>
+		</div>
+	</div>
+	<div class="wrap">
+		<div class="h-list-l"><img src="../theme/xian.com/default/static/img/temp/h-list_15_img.png" tppabs="https://www.xian.com/theme/xian.com/default/static/img/temp/h-list_15_img.png" alt=""></div>
+		<div class="h-list-r">
+			
+			<div class="h-list-rt">
+				<span>类别</span><span>用途</span><span>适合对象</span><span>销售价</span>
+			</div>
+			<div class="h-list-rc">
+				
+				<span>
+					
+					<a href="../lipin/sh/index.htm" tppabs="https://www.xian.com/lipin/sh/">首饰</a>
+					<a href="../lipin/yyh/index.htm" tppabs="https://www.xian.com/lipin/yyh/">音乐盒</a>
+					<a href="../lipin/xiangxun/index.htm" tppabs="https://www.xian.com/lipin/xiangxun/">香薰</a>
+					<a href="../lipin/ppgz/index.htm" tppabs="https://www.xian.com/lipin/ppgz/">公仔</a>
+					<a href="../lipin/cybj/index.htm" tppabs="https://www.xian.com/lipin/cybj/">创意摆件</a>
+					<a href="../lipin/qkl/index.htm" tppabs="https://www.xian.com/lipin/qkl/">巧克力</a>
+					<a href="../lipin/cyds/index.htm" tppabs="https://www.xian.com/lipin/cyds/">灯饰</a>
+					<a href="../lipin/sjq/index.htm" tppabs="https://www.xian.com/lipin/sjq/">水晶球</a>
+					<a href="../lipin/shuibei/index.htm" tppabs="https://www.xian.com/lipin/shuibei/">水杯</a>
+					<a href="../lipin/jiashiqi/index.htm" tppabs="https://www.xian.com/lipin/jiashiqi/">加湿器</a>
+					<a href="../lipin/anmoyi/index.htm" tppabs="https://www.xian.com/lipin/anmoyi/">按摩仪</a>
+				</span>
+				<span>
+					
+					<a href="../lipin/srlp/index.htm" tppabs="https://www.xian.com/lipin/srlp/">生日礼品</a>
+					<a href="../lipin/yhqalp/index.htm" tppabs="https://www.xian.com/lipin/yhqalp/">约会礼品</a>
+					<a href="../lipin/jhlp/index.htm" tppabs="https://www.xian.com/lipin/jhlp/">结婚礼品</a>
+					<a href="../lipin/gxzflp/index.htm" tppabs="https://www.xian.com/lipin/gxzflp/">祝福礼品</a>
+					<a href="../lipin/bftwlp/index.htm" tppabs="https://www.xian.com/lipin/bftwlp/">拜访礼品</a>
+					<a href="../lipin/jhjyrlp/index.htm" tppabs="https://www.xian.com/lipin/jhjyrlp/">纪念日礼品</a>
+					<a href="../lipin/qklp/index.htm" tppabs="https://www.xian.com/lipin/qklp/">乔迁礼品</a>
+					<a href="../lipin/jjlp/index.htm" tppabs="https://www.xian.com/lipin/jjlp/">家居礼品</a>
+				</span>
+				<span>
+					
+					<a href="../lipin/snrqzlp/index.htm" tppabs="https://www.xian.com/lipin/snrqzlp/">送恋人</a>
+					<a href="../lipin/spytslp/index.htm" tppabs="https://www.xian.com/lipin/spytslp/">送朋友</a>
+					<a href="../lipin/skhlp/index.htm" tppabs="https://www.xian.com/lipin/skhlp/">送客户</a>
+					<a href="../lipin/snslp/index.htm" tppabs="https://www.xian.com/lipin/snslp/">送老师</a>
+					<a href="../lipin/sxhlp/index.htm" tppabs="https://www.xian.com/lipin/sxhlp/">送小孩</a>
+					<a href="../lipin/sndlp/index.htm" tppabs="https://www.xian.com/lipin/sndlp/">送领导</a>
+					<a href="../lipin/sfmzblp/index.htm" tppabs="https://www.xian.com/lipin/sfmzblp/">送长辈</a>
+				</span>
+				<span>
+					
+					<a href="../lipin/j1/index.htm" tppabs="https://www.xian.com/lipin/j1/">120元以下</a>
+					<a href="../lipin/j2/index.htm" tppabs="https://www.xian.com/lipin/j2/">120-180元</a>
+					<a href="../lipin/j3/index.htm" tppabs="https://www.xian.com/lipin/j3/">180-300元</a>
+					<a href="../lipin/j4/index.htm" tppabs="https://www.xian.com/lipin/j4/">300-500元</a>
+					<a href="../lipin/j5/index.htm" tppabs="https://www.xian.com/lipin/j5/">500元以上</a>
+				</span>
+			</div>
+		</div>
+	</div>
+</div>
+    
+	<div class="weekflower_banner">
+		<a href="../xianhua/index.htm" tppabs="https://www.xian.com/xianhua/"><img data-lazy="//www.xian.com/theme/xian.com/default//static/img/week_flower/week_floewr_banner.png" alt="" height=""></a>
+	</div>
+
+	<div class="wrap">
+		<div class="h40"></div>
+		<div class="wf_introduc">
+			<img data-lazy="//www.xian.com/theme/xian.com/default//static/img/week_flower/wf_introduc_01.png" alt="" width="220" height="220">
+			<p class="wf_introduc-t1">选择你的订阅计划</p>
+			<p class="wf_introduc-t2">定期给自己（或某个特别的人）一些爱：每周，每周交替，或每月。</p>
+		</div>
+		<div class="wf_introduc">
+			<img data-lazy="//www.xian.com/theme/xian.com/default//static/img/week_flower/wf_introduc_02.png" alt="" width="220" height="220">
+			<p class="wf_introduc-t1">精心挑选的鲜花</p>
+			<p class="wf_introduc-t2">花的味道是独特而私人的，我们迎合各种风格；精选当季精品花材，种类齐全。</p>
+		</div>
+		<div class="wf_introduc">
+			<img data-lazy="//www.xian.com/theme/xian.com/default//static/img/week_flower/wf_introduc_03.png" alt="" width="220" height="220">
+			<p class="wf_introduc-t1">忙碌生活中的小幸福</p>
+			<p class="wf_introduc-t2">美丽的花花会送到你的门上，收到花花的那一刻，你需要做的就是享受。</p>
+		</div>
+		<div class="clear"></div>
+	</div>
+
+	
+
+	
+	<div class="wrap">
+		<div class="h60"></div>
+		<div class="wf_con">
+			<div class="wf_con-t1">
+				<!--<span class="t1">Flower</span>-->
+				<img src="../theme/xian.com/default/static/img/week_flower/wf_con-titimg.png" tppabs="https://www.xian.com/theme/xian.com/default//static/img/week_flower/wf_con-titimg.png" alt=""> 
+				<span class="t2">精选花束</span>
+			</div>
+			<div class="wf_con-t2">呵护每一朵幸福盛开的鲜花</div>
+		</div>
+		<div class="h60"></div>
+		<div class="column-flower">
+			
+				<div class="column-flower-item">
+	<a href="45343.html" tppabs="https://www.xian.com/mzyh/45343.html">
+		
+		<div class="hover"><img data-lazy="//www.xian.com/upload/image/2018-08/01/1b2ea_cca6.jpg" alt="" style="max-width: 279px; max-height: 279px;"></div>
+		<div class="goods-info">
+			<div class="goods-info-title">每周一花系列轻奢版</div>
+			<div class="goods-info-price">
+				¥298.00
+			    <span class="scj">原价 ¥498.00</span>
+			</div>
+			<div class="goods-info-span">
+				
+				<span class="rq">已售 408</span>
+				<!--
+				<span class="zk">6折</span>
+				-->
+			</div>
+		</div>
+	</a>
+</div>
+			
+				<div class="column-flower-item">
+	<a href="45342.html" tppabs="https://www.xian.com/mzyh/45342.html">
+		
+		<div class="hover"><img data-lazy="//www.xian.com/upload/image/2018-07/14/203c0_8417.jpg" alt="" style="max-width: 279px; max-height: 279px;"></div>
+		<div class="goods-info">
+			<div class="goods-info-title">每周一花系列双拼版</div>
+			<div class="goods-info-price">
+				¥238.00
+			    <span class="scj">原价 ¥348.00</span>
+			</div>
+			<div class="goods-info-span">
+				
+				<span class="rq">已售 797</span>
+				<!--
+				<span class="zk">7折</span>
+				-->
+			</div>
+		</div>
+	</a>
+</div>
+			
+				<div class="column-flower-item">
+	<a href="45341.html" tppabs="https://www.xian.com/mzyh/45341.html">
+		
+		<div class="hover"><img data-lazy="//www.xian.com/upload/image/2018-07/14/1dcfa_eaf5.jpg" alt="" style="max-width: 279px; max-height: 279px;"></div>
+		<div class="goods-info">
+			<div class="goods-info-title">每周一花系列混搭版</div>
+			<div class="goods-info-price">
+				¥198.00
+			    <span class="scj">原价 ¥298.00</span>
+			</div>
+			<div class="goods-info-span">
+				
+				<span class="rq">已售 775</span>
+				<!--
+				<span class="zk">7折</span>
+				-->
+			</div>
+		</div>
+	</a>
+</div>
+			
+				<div class="column-flower-item">
+	<a href="45285.html" tppabs="https://www.xian.com/mzyh/45285.html">
+		
+		<div class="hover"><img data-lazy="//www.xian.com/upload/image/2018-07/13/25ce8_c799.jpg" alt="" style="max-width: 279px; max-height: 279px;"></div>
+		<div class="goods-info">
+			<div class="goods-info-title">每周一花系列单品版</div>
+			<div class="goods-info-price">
+				¥148.00
+			    <span class="scj">原价 ¥256.00</span>
+			</div>
+			<div class="goods-info-span">
+				
+				<span class="rq">已售 783</span>
+				<!--
+				<span class="zk">6折</span>
+				-->
+			</div>
+		</div>
+	</a>
+</div>
+			
+		</div>
+	</div>
+
+	
+	<div class="wrap">
+		<div class="h60"></div>
+		<div class="wf_con">
+			<div class="wf_con-t1">
+				<!--<span class="t1">Ambitus</span>-->
+				<img src="../theme/xian.com/default/static/img/week_flower/wf_con-titimg.png" tppabs="https://www.xian.com/theme/xian.com/default//static/img/week_flower/wf_con-titimg.png" alt=""> 
+				<span class="t2">周边精选</span>
+			</div>
+			<div class="wf_con-t2">呵护每一朵幸福盛开的鲜花</div>
+		</div>
+		<div class="h60"></div>
+		<div class="column-flower">
+			
+				<div class="column-flower-item">
+	<a href="45364.html" tppabs="https://www.xian.com/mzyh/45364.html">
+		
+		<div class="hover"><img data-lazy="//www.xian.com/upload/image/2018-07/16/29f24_fa31.jpg" alt="" style="max-width: 279px; max-height: 279px;"></div>
+		<div class="goods-info">
+			<div class="goods-info-title">唯美手绘手账本</div>
+			<div class="goods-info-price">
+				¥39.00
+			    <span class="scj">原价 ¥49.00</span>
+			</div>
+			<div class="goods-info-span">
+				
+				<span class="rq">已售 3</span>
+				<!--
+				<span class="zk">8折</span>
+				-->
+			</div>
+		</div>
+	</a>
+</div>
+			
+				<div class="column-flower-item">
+	<a href="45363.html" tppabs="https://www.xian.com/mzyh/45363.html">
+		
+		<div class="hover"><img data-lazy="//www.xian.com/upload/image/2018-07/16/27f97_6d11.jpg" alt="" style="max-width: 279px; max-height: 279px;"></div>
+		<div class="goods-info">
+			<div class="goods-info-title">北欧简约玻璃花瓶</div>
+			<div class="goods-info-price">
+				¥76.00
+			    <span class="scj">原价 ¥158.00</span>
+			</div>
+			<div class="goods-info-span">
+				
+				<span class="rq">已售 18</span>
+				<!--
+				<span class="zk">5折</span>
+				-->
+			</div>
+		</div>
+	</a>
+</div>
+			
+				<div class="column-flower-item">
+	<a href="45361.html" tppabs="https://www.xian.com/mzyh/45361.html">
+		
+		<div class="hover"><img data-lazy="//www.xian.com/upload/image/2018-07/16/27f2d_2a34.jpg" alt="" style="max-width: 279px; max-height: 279px;"></div>
+		<div class="goods-info">
+			<div class="goods-info-title">进口鲜花保鲜液</div>
+			<div class="goods-info-price">
+				¥39.00
+			    <span class="scj">原价 ¥69.00</span>
+			</div>
+			<div class="goods-info-span">
+				
+				<span class="rq">已售 19</span>
+				<!--
+				<span class="zk">6折</span>
+				-->
+			</div>
+		</div>
+	</a>
+</div>
+			
+				<div class="column-flower-item">
+	<a href="45360.html" tppabs="https://www.xian.com/mzyh/45360.html">
+		
+		<div class="hover"><img data-lazy="//www.xian.com/upload/image/2018-07/16/2767a_15778.jpg" alt="" style="max-width: 279px; max-height: 279px;"></div>
+		<div class="goods-info">
+			<div class="goods-info-title">多姿多彩花艺剪</div>
+			<div class="goods-info-price">
+				¥19.80
+			    <span class="scj">原价 ¥72.00</span>
+			</div>
+			<div class="goods-info-span">
+				
+				<span class="rq">已售 99</span>
+				<!--
+				<span class="zk">3折</span>
+				-->
+			</div>
+		</div>
+	</a>
+</div>
+			
+		</div>
+	</div>
+
+	<div class="wrap">
+		<div class="wf_infos">
+			
+			<div class="h60"></div>
+			<div class="wf_infos-l wf_infos-01">
+				<img data-lazy="//www.xian.com/upload/image/2018-07/14/22d42_cda8.jpg" alt="">
+				<div class="img_bg"><img data-lazy="//www.xian.com/theme/xian.com/default//static/img/week_flower/wf_infos_bg_01.png" alt=""></div>
+				<div class="info">
+					<div class="info_t1">每周一花系列轻奢版</div>
+					<div class="info_t2">享受极致奢华</div>
+					<div class="info_t3">¥ 298.00</div>
+					<a href="45343.html" tppabs="https://www.xian.com/mzyh/45343.html" class="info_btn">订阅惊喜</a>
+				</div>
+			</div>
+			<div class="h60"></div>
+			<div class="wf_infos-r wf_infos-02">
+				<img data-lazy="//www.xian.com/upload/image/2018-07/14/203b7_ce14.jpg" alt="">
+				<div class="img_bg"><img data-lazy="//www.xian.com/theme/xian.com/default//static/img/week_flower/wf_infos_bg_02.png" alt=""></div>
+				<div class="info">
+					<div class="info_t1">每周一花系列双拼版</div>
+					<div class="info_t2">不同花材的浪漫</div>
+					<div class="info_t3">¥ 238.00</div>
+					<a href="45342.html" tppabs="https://www.xian.com/mzyh/45342.html" class="info_btn">订阅惊喜</a>
+				</div>
+			</div>
+			<div class="h60"></div>
+			<div class="wf_infos-l wf_infos-03">
+				<img data-lazy="//www.xian.com/upload/image/2018-07/14/1dd02_aa75.jpg" alt="">
+				<div class="img_bg"><img data-lazy="//www.xian.com/theme/xian.com/default//static/img/week_flower/wf_infos_bg_03.png" alt=""></div>
+				<div class="info">
+					<div class="info_t1">每周一花系列混搭版</div>
+					<div class="info_t2">多重混搭</div>
+					<div class="info_t3">¥ 198.00</div>
+					<a href="45341.html" tppabs="https://www.xian.com/mzyh/45341.html" class="info_btn">订阅惊喜</a>
+				</div>
+			</div>
+			<div class="h60"></div>
+			<div class="wf_infos-r wf_infos-04">
+				<img data-lazy="//www.xian.com/upload/image/2018-07/13/2a87d_2fbd.jpg" alt="">
+				<div class="img_bg"><img data-lazy="//www.xian.com/theme/xian.com/default//static/img/week_flower/wf_infos_bg_04.png" alt=""></div>
+				<div class="info">
+					<div class="info_t1">每周一花系列单品版</div>
+					<div class="info_t2">极致简约风格</div>
+					<div class="info_t3">¥ 148.00</div>
+					<a href="45285.html" tppabs="https://www.xian.com/mzyh/45285.html" class="info_btn">订阅惊喜</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="h60"></div>
+	<div class="h60"></div>
+	<div class="wrap">
+		<div class="wf_con">
+			<div class="wf_con-t1">
+				<!--<span class="t1">Ambitus</span>-->
+				<img src="../theme/xian.com/default/static/img/week_flower/wf_con-titimg.png" tppabs="https://www.xian.com/theme/xian.com/default//static/img/week_flower/wf_con-titimg.png" alt=""> 
+				<span class="t2">周边精选</span>
+			</div>
+			<div class="wf_con-t2">呵护每一朵幸福盛开的鲜花</div>
+
+			<div class="h60"></div>
+			<div class="wf_goods">
+				<div class="column-flower">
+					
+					<a href="45364.html" tppabs="https://www.xian.com/mzyh/45364.html">
+						<div class="column-flower-item">
+							<div class="hover"><img data-lazy="//www.xian.com/upload/image/2018-07/16/29f24_fa31.jpg" alt="" width="386"></div>
+							<div class="goods-info article-text">
+								<div class="goods-info-title">唯美手绘手账本</div>
+								<div class="goods-info-text">记录每一天的新鲜感</div>
+								<div class="goods-info-price">¥ 39.00</div>
+							</div>
+						</div>
+					</a>
+					<a href="45363.html" tppabs="https://www.xian.com/mzyh/45363.html">
+						<div class="column-flower-item">
+							<div class="hover"><img data-lazy="//www.xian.com/upload/image/2018-07/16/27f97_6d11.jpg" alt="" width="386"></div>
+							<div class="goods-info article-text">
+								<div class="goods-info-title">北欧简约玻璃花瓶</div>
+								<div class="goods-info-text">金属和玻璃碰撞出的艺术美学</div>
+								<div class="goods-info-price">¥ 76.00</div>
+							</div>
+						</div>
+					</a>
+					<a href="45361.html" tppabs="https://www.xian.com/mzyh/45361.html">
+						<div class="column-flower-item">
+							<div class="hover"><img data-lazy="//www.xian.com/upload/image/2018-07/16/27f2d_2a34.jpg" alt="" width="386"></div>
+							<div class="goods-info article-text">
+								<div class="goods-info-title">进口鲜花保鲜液</div>
+								<div class="goods-info-text">固本培元</div>
+								<div class="goods-info-price">¥ 39.00</div>
+							</div>
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="h60"></div>
+	<div class="wrap">
+		<div class="mzyh-box wf_con">
+			<div class="wf_con-t1">
+				<!--<span class="t1">Story</span>-->
+				<img src="../theme/xian.com/default/static/img/week_flower/wf_con-titimg.png" tppabs="https://www.xian.com/theme/xian.com/default//static/img/week_flower/wf_con-titimg.png" alt=""> 
+				<span class="t2">花之精灵</span>
+			</div>
+
+			<div class="h60"></div>
+			<div class="mzyh-box-txt">
+				<span>来自云南的A级花材</span>
+				<div class="line"></div>
+				
+				<h3><a href="45285.html" tppabs="https://www.xian.com/mzyh/45285.html">每一朵鲜花都是如此美丽，带着大自然的气息，只为拥抱你。</a></h3>
+				<p>地处低纬度高海拔地区，全年光照，充分吸收紫外线，让产自云南的鲜花花朵硕大、色彩艳丽，让人爱不释手。云南天然土壤中蕴含更多的矿物质，鲜花吸收更充足的养分。为鲜花种植提供优质的条件，孕育出更加饱满的鲜花。</p>				
+				<label><a href="45285.html" tppabs="https://www.xian.com/mzyh/45285.html">每一朵花都是有灵魂的</a></label>
+			</div>
+			<div class="mzyh-box-pic">
+				<ul class="clearfix">
+					
+					<li class="hover">
+						<a href="45285.html" tppabs="https://www.xian.com/mzyh/45285.html" class="img"><img src="../upload/image/2018-07/13/2a87d_2fbd.jpg" tppabs="https://www.xian.com/upload/image/2018-07/13/2a87d_2fbd.jpg" /></a>
+					</li>
+					<li class="hover">
+						<a href="45342.html" tppabs="https://www.xian.com/mzyh/45342.html" class="img"><img src="../upload/image/2018-07/14/203b7_ce14.jpg" tppabs="https://www.xian.com/upload/image/2018-07/14/203b7_ce14.jpg" /></a>
+					</li>
+				</ul>
+			</div>
+			<div class="h150"></div>
+		</div>
+	</div>
+	
+	<div class="footer ">
+	<div class="wrap">
+		<div class=" footer-items">
+			<div class="footer-item footer-link bdsharebuttonbox">
+				<a class="hover footer-link-wx" href="javascript:;" data-cmd="weixin"></a>
+				<a class="hover footer-link-qq" href="javascript:;" data-cmd="qzone"></a>
+				<a class="hover footer-link-wb" href="javascript:;" data-cmd="tsina"></a>
+				<p>Copyright © 2018 鲜家 All rights reserved.<br/>Powered by Bo Wen Technology Co., Ltd.<br />工信部备：辽ICP备18014953号-2<br />公安部备：21010202000602</p>
+			</div>
+			<div class="footer-item r_code">
+				<img data-lazy="//www.xian.com/theme/xian.com/default/static/img/r_code.png" alt="">
+				<p>微信关注鲜家，立享优惠</p>
+				<script type="text/javascript" src="../theme/xian.com/default/static/js/mobile.js" tppabs="https://www.xian.com/theme/xian.com/default/static/js/mobile.js"></script>
+			</div>
+			<div class="footer-item footer-others">
+				<div class="footer-other">
+					<div class="footer-other-link">
+						<span><a href="../service/210.html" tppabs="https://www.xian.com/service/210.html">售后服务</a></span>
+						<span><a href="../tongcheng/index.htm" tppabs="https://www.xian.com/tongcheng/">同城鲜花</a></span>
+						<span><a href="../service/200.html" tppabs="https://www.xian.com/service/200.html">关于我们</a></span>
+					</div>
+					<div class="footer-other-tel">全国订购热线:<span>400-888-1571</span></div>
+					<div class="footer-other-tel">商务合作热线:<span>024-31128100</span></div>
+					<div class="footer-other-customs">
+						<a class="hover" href="javascript:;" onclick="openChat();">在线客服</a>
+					</div>
+				</div>
+			</div>
+		</div> 
+	</div>
+</div>
+
+<script type="text/javascript" src="../theme/xian.com/default/static/js/leyu.js" tppabs="https://www.xian.com/theme/xian.com/default/static/js/leyu.js"></script>
+<script type="text/javascript" src="../theme/xian.com/default/static/js/tongji.js" tppabs="https://www.xian.com/theme/xian.com/default/static/js/tongji.js"></script>
+	<div class="rside">
+	<div class="ibut cservice ">
+		<a href="javascript:;" onclick="openChat();" title="鲜家顾问" class="cservice-avator">
+			<p>鲜家顾问</p>
+			<p>竭诚为您服务</p>
+		</a>
+		<!--
+		<a class="cservice-box" href="javascript:;" onclick="openChat();">
+			<div class="cservice-box-content">
+				<div class="cservice-box-title">甄选优质鲜花，心意不打折扣</div>
+				<div class="cservice-box-sub">“花”点时间说爱ta</div>
+				<span class="cservice-box-close">✕</span>
+			</div>
+			<div class="cservice-box-btns">
+				<span class="cservice-box-btn1">选花咨询</span>
+				<span class="cservice-box-btn2">特价鲜花</span>
+			</div>
+			<div class="arrow-right"></div>
+		</a>
+		-->
+	</div>
+	<ul>
+		<li class="cart ">
+			<a href="../shop/cart/index.htm" tppabs="https://www.xian.com/shop/cart/" title="购物车">
+				<i class="icon-rside icon-cart2"></i>
+				<span class="icon-scar-num">0</span>
+			</a>
+		</li>
+		<li class="ibut favorite ">
+			<a href="javascript:if(confirm('https://www.xian.com/member/login/?url=https%3A%2F%2Fwww.xian.com%2Fmember%2Ffavorite%2Flist%2F  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ������, �����������, ����Ŀ����ֹͣ��  \n\n�����ڷ������ϴ���?'))window.location='https://www.xian.com/member/login/?url=https%3A%2F%2Fwww.xian.com%2Fmember%2Ffavorite%2Flist%2F'" tppabs="https://www.xian.com/member/favorite/list/" title="收藏鲜花">
+				<i class="icon-rside icon-favorite"></i>
+			</a>
+			<div class="rsidepop">
+				<a href="javascript:if(confirm('https://www.xian.com/member/login/?url=https%3A%2F%2Fwww.xian.com%2Fmember%2Ffavorite%2Flist%2F  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ������, �����������, ����Ŀ����ֹͣ��  \n\n�����ڷ������ϴ���?'))window.location='https://www.xian.com/member/login/?url=https%3A%2F%2Fwww.xian.com%2Fmember%2Ffavorite%2Flist%2F'" tppabs="https://www.xian.com/member/favorite/list/">
+					收藏鲜花
+				</a>
+			</div>
+		</li>
+		<li class="ibut history ">
+			<a href="javascript:;" title="历史记录">
+				<i class="icon-rside icon-history"></i>
+			</a>
+		</li>
+		<li class="ibut qrcode ">
+			<a href="javascript:;" title="关注微信公众号">
+				<i class="icon-rside icon-qrcode"></i>
+			</a>
+			<div class="rsidepop">
+				<div class="fqrcode tc">
+					<p class="note">回复“礼物”有惊喜！" 活动多多，在鲜家遇见幸福</p>
+					<p class="img">
+						<img src="../theme/xian.com/default/static/img/r_code.png" tppabs="https://www.xian.com/theme/xian.com/default/static/img/r_code.png" width="128" height="130">
+					</p>
+					<p class="gzh">公众号</p>
+				</div>
+			</div>
+		</li>
+		<li class="ibut expanded iconbounce">
+			<a href="javascript:;" onclick="$(function () {$('html').animate({ scrollTop: 0 }, 500);$('body').animate({scrollTop: 0}, 500);})" title="顶部">
+			<i class="icon-rside icon-expanded"></i>顶部</a>
+		</li>
+	</ul>
+</div>
+
+</body>
+</html>

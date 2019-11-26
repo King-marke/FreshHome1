@@ -1,0 +1,33 @@
+#端口
+server:
+  port: 7002
+
+spring:
+  application:
+    name: provider-service7002 #设置注册到注册中心的名字
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://120.77.240.238:3306/xianhome?serverTimezone=UTC
+    username: root
+    password: root
+    type: com.alibaba.druid.pool.DruidDataSource
+#注册中心
+eureka:
+  service:
+    enable-self-preservation: false        #禁用保护,上线时改为true
+    eviction-interval-timer-in-ms: 10000    #清理间隔（默认是60*1000）
+  client:
+    service-url:
+      defaultZone: http://localhost:6001/eureka
+#连接数据库
+mybatis-plus:
+  type-aliases-package: com.xj.pojo
+  mapper-locations: mapper/*Mapper.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+logging:
+  level:
+    com:
+      cssl:
+        mapper: debug

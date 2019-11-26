@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<!-- saved from url=(0033)https://www.xian.com/member/info/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>鲜家网 | 会员中心 &gt; 个人信息</title>
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<link rel="stylesheet" type="text/css" href="./鲜家网 _ 会员中心 _ 个人信息_files/animation.css">
+<link rel="stylesheet" type="text/css" href="./鲜家网 _ 会员中心 _ 个人信息_files/common.css">
+<link rel="stylesheet" type="text/css" href="./鲜家网 _ 会员中心 _ 个人信息_files/base.css">
+
+<script src="./鲜家网 _ 会员中心 _ 个人信息_files/jquery-1.7.2.min.js.下载"></script>
+<script src="./鲜家网 _ 会员中心 _ 个人信息_files/banner.js.下载"></script>
+<script src="./鲜家网 _ 会员中心 _ 个人信息_files/lazyload.js.下载"></script>
+<script src="./鲜家网 _ 会员中心 _ 个人信息_files/cutdown.js.下载"></script>
+
+<script type="text/javascript" src="./鲜家网 _ 会员中心 _ 个人信息_files/jquery.showDialog.js.下载"></script>
+<link href="./鲜家网 _ 会员中心 _ 个人信息_files/showDialog.css" rel="stylesheet" type="text/css">
+
+<script src="./鲜家网 _ 会员中心 _ 个人信息_files/app.min.js.下载"></script>
+<script src="./鲜家网 _ 会员中心 _ 个人信息_files/common.js.下载"></script>
+<script type="text/javascript">app.uri='';app.root='//www.xian.com';</script>
+	<script type="text/javascript">
+	$(function(){
+		$('.khzx-menu dl dt a').click(function(){
+			$('.khzx-menu dl').removeClass('active');
+			$(this).parent().parent().addClass('active');
+		});
+		//动态生成
+		$('.khzx-menu dl dd a[res=1010]').addClass('active').parent().parent().addClass('active');
+
+		$(".member-submit").click(function(){
+			if( formVerify('.infoFrm') ){
+				app.user.info.submit($(".infoFrm"), function(result){
+					app.tools.info( result.msg );
+				});
+			}
+		});
+
+		function invokeSettime(obj){
+			var countdown=60;
+			settime(obj);
+			function settime(obj){
+				if (countdown == 0){
+					$(obj).prop("disabled", false);
+					$(obj).html("获取短信验证码");
+					countdown = 60;
+					return;
+				}
+				else {
+					$(obj).prop("disabled", true);
+					$(obj).html("重新获取 " + countdown + " 秒");
+					countdown--;
+				}
+				if( countdown>=0 ){
+					setTimeout(function(){
+						settime(obj);
+					}, 1000);
+				}
+			}
+		}
+
+		$('body').on('click', '.bind-send', function(){
+			$('.bind-form .loginfrm-loading').html('');
+			if( $('.code-li').is(":hidden") ){
+				//$('.safecode-li').hide().find('input').prop("disabled", true);
+				$('.safecode-li').find('input').prop("disabled", true);
+				$('.code-li').show().find('input').prop("disabled", false);
+				$('.bind-submit').prop("disabled", true);
+				return;
+			}
+			if( formVerify('.bind-form') ){
+				app.user.info.send( $('.bind-form'), function(result){
+					if( result.status ){
+						$('.code-li').hide().find('input').prop("disabled", true);
+						$('.safecode-li').show().find('input').prop("disabled", false);
+						$('.bind-submit').prop("disabled", false);
+						invokeSettime( $('.bind-send') );
+					}
+					$('.bind-form  .loginfrm-loading').html( result.msg );
+				}, function( msg ){
+					$('.bind-form  .loginfrm-loading').html( msg );
+				});
+			}
+		});
+
+		$('body').on('click', '.bind-submit', function(){
+			$('.bind-form .loginfrm-loading').html('');
+			if( formVerify('.bind-form') ){
+				var callback = $('input[name=name]')[0] ? app.user.info.change : app.user.info.bind;
+				callback( $('.bind-form'), function(result){
+					if( result.status ){
+						window.location.reload();
+					}
+					$('.bind-form  .loginfrm-loading').html( result.msg );
+				}, function( msg ){
+					$('.bind-form  .loginfrm-loading').html( msg );
+				});
+			}
+		});
+
+		$('.name-bind-handle').click(function(){
+			showDialog('window', $('#name-form').html(), $(this).html(), 'auto');
+		});
+
+		$('.mobile-bind-handle').click(function(){
+			showDialog('window', $('#mobile-form').html(), $(this).html(), 'auto');
+		});
+
+		$('.email-bind-handle').click(function(){
+			showDialog('window', $('#email-form').html(), $(this).html(), 'auto');
+		});
+	});
+	</script>
+</head>
+<body class="bg">
+
+	
+<div class="topper">
+	<div class="wrap">
+		<div class="h-left">
+			<a href="javascript:;" title="收藏鲜花网"><img src="./鲜家网 _ 会员中心 _ 个人信息_files/logo.png" width="200" height="90"></a>
+		</div>
+		<div class="h-right">
+			<a href="https://www.xian.com/">首页</a>
+			<a href="https://www.xian.com/xianhua/">鲜花</a>
+			<a href="https://www.xian.com/ysh/">永生花</a>
+			<a href="https://www.xian.com/lipin/">礼品</a>
+			<a href="https://www.xian.com/mzyh/">每周一花</a>
+			<a href="https://www.xian.com/huayu/">花语</a>
+			<a href="https://www.xian.com/group/">企业团购</a>
+			<span class="search">
+				<form action="https://www.xian.com/s.html" method="get" name="search">
+					<input type="hidden" name="o" value="0">
+					<div class="search-frame">
+						<input type="text" class="q" name="q" placeholder="请输入关键词搜索" autocomplete="off" value="">
+						<button type="submit" class="s" onclick="if($(&#39;.q&#39;).val()==&#39;&#39;) return false;"><i class="icon icon-search iconbounce"></i></button>
+					</div>
+				</form>
+			</span>
+			<a class="nb" href="https://www.xian.com/shop/cart/"><span class="shopcar iconbounce"><i class="icon icon-cart"></i><i class="icon-scar-num">0</i></span></a>
+			<span class="shop-other iconbounce"> <i class="icon icon-me"></i> </span>
+			<div class="h-me-select" style="display: none;">
+				<div class="arrow-up"></div>
+				<ul>
+					<li class="i_1 login"><a href="https://www.xian.com/member/index/" title="余笙う"><i class="i"></i>会员中心</a></li>
+					<li class="i_2"><a href="https://www.xian.com/shop/order/"><i class="i"></i>我的鲜家</a></li>
+					<li class="i_3"><a href="https://www.xian.com/member/favorite/list/"><i class="i"></i>我的收藏</a></li>
+					<li class="i_4"><a href="javscript:;" onclick="openChat();"><i class="i"></i>联系客服</a></li>
+					<li class="i_5"><a href="https://www.xian.com/mzyh/"><i class="i"></i>帮助中心</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="h-list" style="display: none;">
+	<div class="wrap" style="display: none;">
+		<div class="h-list-l"><img src="./鲜家网 _ 会员中心 _ 个人信息_files/h-list_10_img.png" alt=""></div>
+		<div class="h-list-r">
+			
+			<div class="h-list-rt">
+				<span>用途</span><span>销售价</span><span>花材</span><span>枝数</span>
+			</div>
+			<div class="h-list-rc">
+				
+				<span>
+					
+					<a href="https://www.xian.com/xianhua/aq/">爱情鲜花</a>
+					<a href="https://www.xian.com/xianhua/sr/">生日鲜花</a>
+					<a href="https://www.xian.com/xianhua/yq/">友情鲜花</a>
+					<a href="https://www.xian.com/xianhua/zn/">周年纪念</a>
+					<a href="https://www.xian.com/xianhua/hq/">婚庆鲜花</a>
+					<a href="https://www.xian.com/xianhua/zh/">祝贺鲜花</a>
+					<a href="https://www.xian.com/xianhua/tb/">探病慰问</a>
+					<a href="https://www.xian.com/xianhua/wh/">问候长辈</a>
+					<a href="https://www.xian.com/xianhua/sw/">商务鲜花</a>
+					<a href="https://www.xian.com/xianhua/dq/">道歉鲜花</a>
+				</span>
+				<span>
+					
+					<a href="https://www.xian.com/xianhua/jg0/">150元以内</a>
+					<a href="https://www.xian.com/xianhua/jg1/">150-199元</a>
+					<a href="https://www.xian.com/xianhua/jg2/">200-249元</a>
+					<a href="https://www.xian.com/xianhua/jg3/">250-399元</a>
+					<a href="https://www.xian.com/xianhua/jg4/">400-499元</a>
+					<a href="https://www.xian.com/xianhua/jg5/">500-599元</a>
+					<a href="https://www.xian.com/xianhua/jg6/">600-699元</a>
+					<a href="https://www.xian.com/xianhua/jg7/">700元以上</a>
+				</span>
+				<span>
+					
+					<a href="https://www.xian.com/xianhua/mg/">玫瑰花</a>
+					<a href="https://www.xian.com/xianhua/knx/">康乃馨</a>
+					<a href="https://www.xian.com/xianhua/bhh/">百合花</a>
+					<a href="https://www.xian.com/xianhua/xrk/">向日葵</a>
+					<a href="https://www.xian.com/xianhua/zll/">紫罗兰</a>
+					<a href="https://www.xian.com/xianhua/mtx/">满天星</a>
+				</span>
+				<span>
+					
+					<a href="https://www.xian.com/xianhua/zs13/">6枝</a>
+					<a href="https://www.xian.com/xianhua/zs16/">8枝</a>
+					<a href="https://www.xian.com/xianhua/zs19/">9枝</a>
+					<a href="https://www.xian.com/xianhua/zs25/">11枝</a>
+					<a href="https://www.xian.com/xianhua/zs29/">12枝</a>
+					<a href="https://www.xian.com/xianhua/zs33/">13枝</a>
+					<a href="https://www.xian.com/xianhua/zs99/">15枝</a>
+					<a href="https://www.xian.com/xianhua/zs16/">16枝</a>
+					<a href="https://www.xian.com/xianhua/zs19/">19枝</a>
+					<a href="https://www.xian.com/xianhua/zs21/">21枝</a>
+					<a href="https://www.xian.com/xianhua/zs25/">25枝</a>
+					<a href="https://www.xian.com/xianhua/zs29/">29枝</a>
+					<a href="https://www.xian.com/xianhua/zs33/">33枝</a>
+					<a href="https://www.xian.com/xianhua/zs66/">66枝</a>
+					<a href="https://www.xian.com/xianhua/zs99/">99枝以上</a>
+				</span>
+			</div>
+		</div>
+	</div>
+	<div class="wrap" style="display: block;">
+		<div class="h-list-l"><img src="./鲜家网 _ 会员中心 _ 个人信息_files/h-list_11_img.png" alt=""></div>
+		<div class="h-list-r">
+			
+			<div class="h-list-rt">
+				<span>类别</span><span>用途</span><span>销售价</span>
+			</div>
+			<div class="h-list-rc">
+				
+				<span>
+					
+					<a href="https://www.xian.com/ysh/jdhh/">经典花盒</a>
+					<a href="https://www.xian.com/ysh/ysph/">永生瓶花</a>
+					<a href="https://www.xian.com/ysh/jxmg/">巨型玫瑰</a>
+					<a href="https://www.xian.com/ysh/tsysh/">特色永生花</a>
+					<a href="https://www.xian.com/ysh/yshgz/">永生花公仔</a>
+				</span>
+				<span>
+					
+					<a href="https://www.xian.com/ysh/slr/">送恋人爱人</a>
+					<a href="https://www.xian.com/ysh/szb/">送父母长辈</a>
+					<a href="https://www.xian.com/ysh/sts/">送朋友同事</a>
+				</span>
+				<span>
+					
+					<a href="https://www.xian.com/ysh/jg1/">100-199元</a>
+					<a href="https://www.xian.com/ysh/jg2/">200-299元</a>
+					<a href="https://www.xian.com/ysh/jg3/">300-399元</a>
+					<a href="https://www.xian.com/ysh/jg4/">400-499元</a>
+					<a href="https://www.xian.com/ysh/jg5/">500-599元</a>
+					<a href="https://www.xian.com/ysh/jg6/">600-699元</a>
+					<a href="https://www.xian.com/ysh/jg7/">700元以上</a>
+				</span>
+			</div>
+		</div>
+	</div>
+	<div class="wrap" style="display: none;">
+		<div class="h-list-l"><img src="./鲜家网 _ 会员中心 _ 个人信息_files/h-list_15_img.png" alt=""></div>
+		<div class="h-list-r">
+			
+			<div class="h-list-rt">
+				<span>类别</span><span>用途</span><span>适合对象</span><span>销售价</span>
+			</div>
+			<div class="h-list-rc">
+				
+				<span>
+					
+					<a href="https://www.xian.com/lipin/sh/">首饰</a>
+					<a href="https://www.xian.com/lipin/yyh/">音乐盒</a>
+					<a href="https://www.xian.com/lipin/xiangxun/">香薰</a>
+					<a href="https://www.xian.com/lipin/ppgz/">公仔</a>
+					<a href="https://www.xian.com/lipin/cybj/">创意摆件</a>
+					<a href="https://www.xian.com/lipin/qkl/">巧克力</a>
+					<a href="https://www.xian.com/lipin/cyds/">灯饰</a>
+					<a href="https://www.xian.com/lipin/sjq/">水晶球</a>
+					<a href="https://www.xian.com/lipin/shuibei/">水杯</a>
+					<a href="https://www.xian.com/lipin/jiashiqi/">加湿器</a>
+					<a href="https://www.xian.com/lipin/anmoyi/">按摩仪</a>
+				</span>
+				<span>
+					
+					<a href="https://www.xian.com/lipin/srlp/">生日礼品</a>
+					<a href="https://www.xian.com/lipin/yhqalp/">约会礼品</a>
+					<a href="https://www.xian.com/lipin/jhlp/">结婚礼品</a>
+					<a href="https://www.xian.com/lipin/gxzflp/">祝福礼品</a>
+					<a href="https://www.xian.com/lipin/bftwlp/">拜访礼品</a>
+					<a href="https://www.xian.com/lipin/jhjyrlp/">纪念日礼品</a>
+					<a href="https://www.xian.com/lipin/qklp/">乔迁礼品</a>
+					<a href="https://www.xian.com/lipin/jjlp/">家居礼品</a>
+				</span>
+				<span>
+					
+					<a href="https://www.xian.com/lipin/snrqzlp/">送恋人</a>
+					<a href="https://www.xian.com/lipin/spytslp/">送朋友</a>
+					<a href="https://www.xian.com/lipin/skhlp/">送客户</a>
+					<a href="https://www.xian.com/lipin/snslp/">送老师</a>
+					<a href="https://www.xian.com/lipin/sxhlp/">送小孩</a>
+					<a href="https://www.xian.com/lipin/sndlp/">送领导</a>
+					<a href="https://www.xian.com/lipin/sfmzblp/">送长辈</a>
+				</span>
+				<span>
+					
+					<a href="https://www.xian.com/lipin/j1/">120元以下</a>
+					<a href="https://www.xian.com/lipin/j2/">120-180元</a>
+					<a href="https://www.xian.com/lipin/j3/">180-300元</a>
+					<a href="https://www.xian.com/lipin/j4/">300-500元</a>
+					<a href="https://www.xian.com/lipin/j5/">500元以上</a>
+				</span>
+			</div>
+		</div>
+	</div>
+</div>
+
+	<div class="wrap nav">
+		<a href="https://www.xian.com/">鲜家首页</a><span>&gt;</span><a href="https://www.xian.com/member/index/">会员中心</a><span>&gt;</span>个人信息
+	</div>
+
+	<div class="wrap">
+		<div class="wl240 bgfff khzx-menu">
+			<dl>
+	<dt><a res="1001" href="https://www.xian.com/member/index/"><i class="icon km01"></i>会员首页</a></dt>
+</dl>
+
+<dl>
+	<dt><a res="1002" href="javascript:;"><i class="icon km02"></i>订单信息<i class="icon km"></i></a></dt>
+	<dd><a res="1003" href="https://www.xian.com/shop/order/">我的订单</a></dd>
+	<dd><a res="10030" href="https://www.xian.com/shop/order/index/d/0/" style="padding-left:15px;">待付款</a></dd>
+	<dd><a res="10031" href="https://www.xian.com/shop/order/index/d/1/" style="padding-left:15px;">今日配送</a></dd>
+	<dd><a res="10032" href="https://www.xian.com/shop/order/index/d/2/" style="padding-left:15px;">待评价</a></dd>
+	<dd><a res="1004" href="https://www.xian.com/member/favorite/list/">我的收藏</a></dd>
+	<dd><a res="1005" href="https://www.xian.com/member/comment/list/">我的评价</a></dd>
+</dl>
+<!--
+<dl>
+	<dt><a res="1006" href="javascript:;"><i class="icon km03"></i>积分管理<i class="icon km"></i></a></dt>
+	<dd><a res="1007" href="">我的积分</a></dd>
+	<dd><a res="1008" href="">积分兑换</a></dd>
+</dl>
+-->
+<dl class="active">
+	<dt><a res="1009" href="javascript:;"><i class="icon km04"></i>帐户设置<i class="icon km"></i></a></dt>
+	<dd><a res="1010" href="https://www.xian.com/member/info/" class="active">个人信息</a></dd>
+	<dd><a res="1011" href="https://www.xian.com/shop/address/">常用收货人</a></dd>
+	<dd><a res="1012" href="https://www.xian.com/member/password/">修改密码</a></dd>
+<!--				
+	<dd><a res="1014" href="">生日/纪念日提醒</a></dd>
+	<dd><a res="1015" href="">关联QQ/微信号</a></dd>
+-->
+</dl>
+
+<dl>
+	<dt><a res="1016" href="javascript:;"><i class="icon km05"></i>付款设置<i class="icon km"></i></a></dt>
+	<dd><a res="1017" href="https://www.xian.com/shop/voucher/">我的优惠券</a></dd>
+	<dd><a res="1018" href="https://www.xian.com/shop/pay/">在线补款</a></dd>
+</dl>
+
+<dl>
+	<dt><a res="1019" href="javascript:;"><i class="icon km06"></i>客户服务<i class="icon km"></i></a></dt>
+	<dd><a res="1020" href="javascript:openChat();">客户留言</a></dd>
+	<dd><a res="1021" href="javascript:openChat();">投诉留言</a></dd>
+	<dd><a res="1022" href="javascript:openChat();">在线客服</a></dd>
+</dl>
+
+<dl>
+	<dt><a res="1023" href="https://www.xian.com/member/logout/"><i class="icon km06"></i><span class="red">注销</span></a></dt>
+</dl>
+		</div>
+		<div class="wr935 bgfff">
+			<div class="member-body">
+				<style type="text/css">
+				.form-body .form-group{
+					margin-bottom: 45px;
+				}
+				.input-label{
+					padding-right: 50px;
+				}
+				</style>
+				<div class="form-body">
+				<form class="infoFrm" action="https://www.xian.com/member/info/" method="post">
+					<ul>
+						<li class="form-group">
+							<label class="input-label"><font color="red"></font> 登录名:</label>
+							<input type="text" class="input-text" pattern="/^[a-z]([a-z0-9_]{1,18}[a-z0-9])?$/" name="name" value="c1573731193" disabled="" placeholder="" autocomplete="off">
+							<a href="javascript:;" class="ml10 blue name-bind-handle">更换</a>
+						</li>
+						<li class="form-group">
+							<label class="input-label"><font color="red">*</font> 昵称:</label>
+							<input type="text" class="input-text" pattern="/^[\u4e00-\u9fa5A-Za-z\.]{2,20}$/" name="aliasname" value="余笙う" placeholder="" autocomplete="off">
+						</li>
+						<li class="form-group">
+							<label class="input-label"><font color="red">*</font> 真实姓名:</label>
+							<input type="text" class="input-text" pattern="/^[\u4e00-\u9fa5A-Za-z\.]{2,20}$/" name="realname" value="" placeholder="" autocomplete="off">
+						</li>
+						<li class="form-group">
+							<label class="input-label"><font color="red">*</font> 性别:</label>
+							<label class="checkbox     "><input type="radio" name="sex" checked="" value="0"><span></span>男</label>
+							<label class="checkbox ml10"><input type="radio" name="sex" value="1"><span></span>女</label>
+							<label class="checkbox ml10"><input type="radio" name="sex" value="2"><span></span>保密</label>
+						</li>
+						<li class="form-group">
+							<label class="input-label"><font color="red">*</font> 生日:</label>
+							<input type="text" class="input-text" pattern="/^\d{4}-\d{1,2}-\d{1,2}$/" name="birthday" value="" placeholder="" autocomplete="off">
+						</li>
+						<li class="form-group">
+							<label class="input-label"><font color="red"></font> 邮箱:</label>
+							<input type="text" class="input-text" disabled="" pattern="/^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$/" name="email" value="" placeholder="" autocomplete="off">
+							<a href="javascript:;" class="ml10 blue email-bind-handle">立即验证</a>
+						</li>
+						<li class="form-group">
+							<label class="input-label"><font color="red"></font> 手机:</label>
+							<input type="text" class="input-text" disabled="" pattern="/^[1-9][0-9]{10}$/" name="mobile" value="" placeholder="" autocomplete="off">
+							<a href="javascript:;" class="ml10 blue mobile-bind-handle">立即验证</a>
+						</li>
+						<li class="form-group mt30">
+							<label class="input-label"><font color="red"></font></label><font color="red">
+							<button class="member-submit" type="button" onclick="">提交</button>
+						</font></li><font color="red">
+					</font></ul><font color="red">
+				
+				</font></form></div><font color="red">			
+
+			</font></div><font color="red">
+		</font></div><font color="red">
+		<div class="clear"></div>
+	</font></div><font color="red">
+
+	<div class="footer ">
+	<div class="wrap">
+		<div class=" footer-items">
+			<div class="footer-item footer-link bdsharebuttonbox">
+				<a class="hover footer-link-wx" href="javascript:;" data-cmd="weixin"></a>
+				<a class="hover footer-link-qq" href="javascript:;" data-cmd="qzone"></a>
+				<a class="hover footer-link-wb" href="javascript:;" data-cmd="tsina"></a>
+				<p>Copyright © 2018 鲜家 All rights reserved.<br>Powered by Bo Wen Technology Co., Ltd.<br>工信部备：辽ICP备18014953号-2<br>公安部备：21010202000602</p>
+			</div>
+			<div class="footer-item r_code">
+				<img data-lazy="//www.xian.com/theme/xian.com/default/static/img/r_code.png" alt="" src="./鲜家网 _ 会员中心 _ 个人信息_files/r_code.png">
+				<p>微信关注鲜家，立享优惠</p>
+				<script type="text/javascript" src="./鲜家网 _ 会员中心 _ 个人信息_files/mobile.js.下载"></script>
+			</div>
+			<div class="footer-item footer-others">
+				<div class="footer-other">
+					<div class="footer-other-link">
+						<span><a href="https://www.xian.com/service/210.html">售后服务</a></span>
+						<span><a href="https://www.xian.com/tongcheng/">同城鲜花</a></span>
+						<span><a href="https://www.xian.com/service/200.html">关于我们</a></span>
+					</div>
+					<div class="footer-other-tel">全国订购热线:<span>400-888-1571</span></div>
+					<div class="footer-other-tel">商务合作热线:<span>024-31128100</span></div>
+					<div class="footer-other-customs">
+						<a class="hover" href="javascript:;" onclick="openChat();">在线客服</a>
+					</div>
+				</div>
+			</div>
+		</div> 
+	</div>
+</div>
+<script type="text/javascript" src="./鲜家网 _ 会员中心 _ 个人信息_files/leyu-mini.js.下载"></script><link rel="stylesheet" href="./鲜家网 _ 会员中心 _ 个人信息_files/chat.min.css">
+<script src="./鲜家网 _ 会员中心 _ 个人信息_files/jquery.bwChat.min.js.下载"></script>
+<script>
+function openChat(e){
+   $(e).bwChat({
+        group: 10080395,
+        channel: 33114,
+        colorStyle:'#ccaa7a',
+        logo:'/static/bwChat/img/logo.png',
+        emotpath:'/static/bwChat/img/emot/',
+        tip:'鲜家网',
+        h5Notify:false,
+        avator:'/static/bwChat/img/CustomerService.png',
+        mobile:false,
+        email:false,
+        phone:'400-888-1571',
+        work:'08:00 ~ 23:00',
+        obj:$('.cservice')
+    })
+}
+</script>
+
+	<div class="rside">
+	<div class="ibut cservice ">
+		<a href="javascript:;" onclick="openChat();" title="鲜家顾问" class="cservice-avator">
+			<p>鲜家顾问</p>
+			<p>竭诚为您服务</p>
+		</a>
+		<!--
+		<a class="cservice-box" href="javascript:;" onclick="openChat();">
+			<div class="cservice-box-content">
+				<div class="cservice-box-title">甄选优质鲜花，心意不打折扣</div>
+				<div class="cservice-box-sub">“花”点时间说爱ta</div>
+				<span class="cservice-box-close">✕</span>
+			</div>
+			<div class="cservice-box-btns">
+				<span class="cservice-box-btn1">选花咨询</span>
+				<span class="cservice-box-btn2">特价鲜花</span>
+			</div>
+			<div class="arrow-right"></div>
+		</a>
+		-->
+	</div>
+	<ul>
+		<li class="cart ">
+			<a href="https://www.xian.com/shop/cart/" title="购物车">
+				<i class="icon-rside icon-cart2"></i>
+				<span class="icon-scar-num">0</span>
+			</a>
+		</li>
+		<li class="ibut favorite ">
+			<a href="https://www.xian.com/member/favorite/list/" title="收藏鲜花">
+				<i class="icon-rside icon-favorite"></i>
+			</a>
+			<div class="rsidepop">
+				<a href="https://www.xian.com/member/favorite/list/">
+					收藏鲜花
+				</a>
+			</div>
+		</li>
+		<li class="ibut history ">
+			<a href="javascript:;" title="历史记录">
+				<i class="icon-rside icon-history"></i>
+			</a>
+		</li>
+		<li class="ibut qrcode ">
+			<a href="javascript:;" title="关注微信公众号">
+				<i class="icon-rside icon-qrcode"></i>
+			</a>
+			<div class="rsidepop">
+				<div class="fqrcode tc">
+					<p class="note">回复“礼物”有惊喜！" 活动多多，在鲜家遇见幸福</p>
+					<p class="img">
+						<img src="./鲜家网 _ 会员中心 _ 个人信息_files/r_code.png" width="128" height="130">
+					</p>
+					<p class="gzh">公众号</p>
+				</div>
+			</div>
+		</li>
+		<li class="ibut expanded iconbounce">
+			<a href="javascript:;" onclick="$(function () {$(&#39;html&#39;).animate({ scrollTop: 0 }, 500);$(&#39;body&#39;).animate({scrollTop: 0}, 500);})" title="顶部">
+			<i class="icon-rside icon-expanded"></i>顶部</a>
+		</li>
+	</ul>
+</div>
+
+
+
+
+<script type="tpl" id="name-form">
+	<h2 style="font-size:18px;text-align:center;padding:20px 0;">更换登录名</h2>
+	<form class="loginfrm bind-form" action="" method="post">
+		<ul class="loginfrm-body">
+			<li>
+				<div class="loginfrm-group">
+					<input type="text" class="input-big" pattern="/^[a-z]([a-z0-9_]{1,18}[a-z0-9])?$/" name="name" value="c1573731193" placeholder="请输入您的登录名称" autocomplete="off" />
+				</div>
+			</li>
+			<li class="code-li">
+				<div class="loginfrm-group">
+					<input type="text" class="input-big code" pattern="/^[a-z0-9]{4}$/i" name="code" maxlength="4" placeholder="请输入图片验证码" autocomplete="off" />
+					<img class="imgcode limgcode" src="/member/info/code/" width="70" height="40" />
+					<a href="javascript:;" onclick="app.user.info.code($('.limgcode'));" class="refreshcode">刷新</a>
+				</div>
+			</li>
+			<li>
+				<div class="loginfrm-group">
+					<p class="loginfrm-loading"></p>
+					<button class="button-big button-block bind-submit" type="button">确定</button>
+				</div>
+			</li>
+		</ul>
+		<div class="h40"></div>
+	</form>
+</script>
+
+<script type="tpl" id="mobile-form">
+	<h2 style="font-size:18px;text-align:center;padding:20px 0;">绑定手机号码</h2>
+	<form class="loginfrm bind-form" action="" method="post">
+		<ul class="loginfrm-body">
+			<li>
+				<div class="loginfrm-group">
+					<input type="text" class="input-big" pattern="/^1[0-9]{10}$/" name="mobile" value=""  placeholder="请输入您的手机号" autocomplete="off" />
+				</div>
+			</li>
+			<li class="code-li">
+				<div class="loginfrm-group">
+					<input type="text" class="input-big code" pattern="/^[a-z0-9]{4}$/i" name="code" maxlength="4" placeholder="请输入图片验证码" autocomplete="off" />
+					<img class="imgcode limgcode" src="/member/info/code/" width="70" height="40" />
+					<a href="javascript:;" onclick="app.user.info.code($('.limgcode'));" class="refreshcode">刷新</a>
+				</div>
+			</li>
+			<li class="safecode-li">
+				<div class="loginfrm-group">
+					<input type="text" class="input-big" pattern="/^[0-9]{4,6}$/" maxlength="6" disabled name="safecode" value="" placeholder="请输入短信验证码" autocomplete="off" />
+				</div>
+				<div class="loginfrm-group">
+					<button class="button-small button-block bind-send" type="button">获取短信验证码</button>
+				</div>
+			</li>
+			<li>
+				<div class="loginfrm-group">
+					<p class="loginfrm-loading"></p>
+					<button disabled class="button-big button-block bind-submit" type="button">立即绑定</button>
+				</div>
+			</li>
+		</ul>
+		<div class="h40"></div>
+	</form>
+</script>
+
+<script type="tpl" id="email-form">
+	<h2 style="font-size:18px;text-align:center;padding:20px 0;">绑定邮箱地址</h2>
+	<form class="loginfrm bind-form" action="" method="post">
+		<ul class="loginfrm-body">
+			<li>
+				<div class="loginfrm-group">
+					<input type="text" class="input-big" pattern="/^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$/" name="email" value=""  placeholder="请输入您的邮箱地址" autocomplete="off" />
+				</div>
+			</li>
+			<li class="code-li">
+				<div class="loginfrm-group">
+					<input type="text" class="input-big code" pattern="/^[a-z0-9]{4}$/i" name="code" maxlength="4" placeholder="请输入图片验证码" autocomplete="off" />
+					<img class="imgcode limgcode" src="/member/info/code/" width="70" height="40" />
+					<a href="javascript:;" onclick="app.user.info.code($('.limgcode'));" class="refreshcode">刷新</a>
+				</div>
+			</li>
+			<li class="safecode-li">
+				<div class="loginfrm-group">
+					<input type="text" class="input-big" pattern="/^[0-9]{4,6}$/" maxlength="6" disabled name="safecode" value="" placeholder="请输入邮件验证码" autocomplete="off" />
+				</div>
+				<div class="loginfrm-group">
+					<button class="button-small button-block bind-send" type="button">获取邮件验证码</button>
+				</div>
+			</li>
+			<li>
+				<div class="loginfrm-group">
+					<p class="loginfrm-loading"></p>
+					<button disabled class="button-big button-block bind-submit" type="button">立即绑定</button>
+				</div>
+			</li>
+		</ul>
+		<div class="h40"></div>
+	</form>
+</script></font></body></html>

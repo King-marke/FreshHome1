@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xj.mapper.Flowers_Fatherthere_UseMapper.java">
+
+    <select id="selectAll" >
+        select fly_use_id,fly_id,fly_two_id,fly_content
+        from flowers_fatherthere_use
+        where fly_id=(
+             SELECT fly_id from flowers_fatherone where fly_name="鲜花"
+          )
+        limit 6
+    </select>
+
+</mapper>

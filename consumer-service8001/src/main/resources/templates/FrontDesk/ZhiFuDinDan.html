@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<!-- saved from url=(0053)https://www.xian.com/shop/order/payment/order/185250/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>鲜家网 | 会员中心 &gt; 支付订单</title>
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<link rel="stylesheet" type="text/css" href="./鲜家网 _ 会员中心 _ 支付订单_files/animation.css">
+<link rel="stylesheet" type="text/css" href="./鲜家网 _ 会员中心 _ 支付订单_files/common.css">
+<link rel="stylesheet" type="text/css" href="./鲜家网 _ 会员中心 _ 支付订单_files/base.css">
+
+<script src="./鲜家网 _ 会员中心 _ 支付订单_files/jquery-1.7.2.min.js.下载"></script>
+<script src="./鲜家网 _ 会员中心 _ 支付订单_files/banner.js.下载"></script>
+<script src="./鲜家网 _ 会员中心 _ 支付订单_files/lazyload.js.下载"></script>
+<script src="./鲜家网 _ 会员中心 _ 支付订单_files/cutdown.js.下载"></script>
+
+<script type="text/javascript" src="./鲜家网 _ 会员中心 _ 支付订单_files/jquery.showDialog.js.下载"></script>
+<link href="./鲜家网 _ 会员中心 _ 支付订单_files/showDialog.css" rel="stylesheet" type="text/css">
+
+<script src="./鲜家网 _ 会员中心 _ 支付订单_files/app.min.js.下载"></script>
+<script src="./鲜家网 _ 会员中心 _ 支付订单_files/common.js.下载"></script>
+<script type="text/javascript">app.uri='';app.root='//www.xian.com';</script>
+	<script type="text/javascript">
+	$(function(){
+		$('.khzx-menu dl dt a').click(function(){
+			$('.khzx-menu dl').removeClass('active');
+			$(this).parent().parent().addClass('active');
+		});
+		//动态生成
+		$('.khzx-menu dl dd a[res=1003]').addClass('active').parent().parent().addClass('active');
+
+		$('ul.payment_list li').click(function(){
+			$('ul.payment_list li').removeClass('active');
+			$(this).addClass('active');
+			//$('#payment_name').text( $(this).data('name') );
+			//$('#payment_fee').text($(this).data('fee') );
+			$('.totalPrice').text($(this).data('price') );
+			//if( $(this).data('price')!= "128.00")
+			//	$('.cart_list .fee').show();
+			//else
+			//	$('.cart_list .hide').hide();
+		});
+
+		$('ul.payment_list li:first').click();
+
+
+		$('.pay-submit').click(function(){
+			if( $('ul.payment_list li.active').length==0 ){
+				app.tools.info( '请选择支付方式！');
+				return;
+			}
+			location.href = $('ul.payment_list li.active').data('url');
+		});
+
+	});
+	</script>
+</head>
+<body>
+
+	
+<div class="topper">
+	<div class="wrap">
+		<div class="h-left">
+			<a href="javascript:;" title="收藏鲜花网"><img src="./鲜家网 _ 会员中心 _ 支付订单_files/logo.png" width="200" height="90"></a>
+		</div>
+		<div class="h-right">
+			<a href="https://www.xian.com/">首页</a>
+			<a href="https://www.xian.com/xianhua/">鲜花</a>
+			<a href="https://www.xian.com/ysh/">永生花</a>
+			<a href="https://www.xian.com/lipin/">礼品</a>
+			<a href="https://www.xian.com/mzyh/">每周一花</a>
+			<a href="https://www.xian.com/huayu/">花语</a>
+			<a href="https://www.xian.com/group/">企业团购</a>
+			<span class="search">
+				<form action="https://www.xian.com/s.html" method="get" name="search">
+					<input type="hidden" name="o" value="0">
+					<div class="search-frame">
+						<input type="text" class="q" name="q" placeholder="请输入关键词搜索" autocomplete="off" value="">
+						<button type="submit" class="s" onclick="if($(&#39;.q&#39;).val()==&#39;&#39;) return false;"><i class="icon icon-search iconbounce"></i></button>
+					</div>
+				</form>
+			</span>
+			<a class="nb" href="https://www.xian.com/shop/cart/index/"><span class="shopcar iconbounce"><i class="icon icon-cart"></i><i class="icon-scar-num">0</i></span></a>
+			<span class="shop-other iconbounce"> <i class="icon icon-me"></i> </span>
+			<div class="h-me-select" style="display: none;">
+				<div class="arrow-up"></div>
+				<ul>
+					<li class="i_1 login"><a href="https://www.xian.com/member/index/" title="余笙う"><i class="i"></i>会员中心</a></li>
+					<li class="i_2"><a href="https://www.xian.com/shop/order/index/"><i class="i"></i>我的鲜家</a></li>
+					<li class="i_3"><a href="https://www.xian.com/member/favorite/list/"><i class="i"></i>我的收藏</a></li>
+					<li class="i_4"><a href="javscript:;" onclick="openChat();"><i class="i"></i>联系客服</a></li>
+					<li class="i_5"><a href="https://www.xian.com/mzyh/"><i class="i"></i>帮助中心</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="h-list" style="display: none;">
+	<div class="wrap">
+		<div class="h-list-l"><img src="./鲜家网 _ 会员中心 _ 支付订单_files/h-list_10_img.png" alt=""></div>
+		<div class="h-list-r">
+			
+			<div class="h-list-rt">
+				<span>用途</span><span>销售价</span><span>花材</span><span>枝数</span>
+			</div>
+			<div class="h-list-rc">
+				
+				<span>
+					
+					<a href="https://www.xian.com/xianhua/aq/">爱情鲜花</a>
+					<a href="https://www.xian.com/xianhua/sr/">生日鲜花</a>
+					<a href="https://www.xian.com/xianhua/yq/">友情鲜花</a>
+					<a href="https://www.xian.com/xianhua/zn/">周年纪念</a>
+					<a href="https://www.xian.com/xianhua/hq/">婚庆鲜花</a>
+					<a href="https://www.xian.com/xianhua/zh/">祝贺鲜花</a>
+					<a href="https://www.xian.com/xianhua/tb/">探病慰问</a>
+					<a href="https://www.xian.com/xianhua/wh/">问候长辈</a>
+					<a href="https://www.xian.com/xianhua/sw/">商务鲜花</a>
+					<a href="https://www.xian.com/xianhua/dq/">道歉鲜花</a>
+				</span>
+				<span>
+					
+					<a href="https://www.xian.com/xianhua/jg0/">150元以内</a>
+					<a href="https://www.xian.com/xianhua/jg1/">150-199元</a>
+					<a href="https://www.xian.com/xianhua/jg2/">200-249元</a>
+					<a href="https://www.xian.com/xianhua/jg3/">250-399元</a>
+					<a href="https://www.xian.com/xianhua/jg4/">400-499元</a>
+					<a href="https://www.xian.com/xianhua/jg5/">500-599元</a>
+					<a href="https://www.xian.com/xianhua/jg6/">600-699元</a>
+					<a href="https://www.xian.com/xianhua/jg7/">700元以上</a>
+				</span>
+				<span>
+					
+					<a href="https://www.xian.com/xianhua/mg/">玫瑰花</a>
+					<a href="https://www.xian.com/xianhua/knx/">康乃馨</a>
+					<a href="https://www.xian.com/xianhua/bhh/">百合花</a>
+					<a href="https://www.xian.com/xianhua/xrk/">向日葵</a>
+					<a href="https://www.xian.com/xianhua/zll/">紫罗兰</a>
+					<a href="https://www.xian.com/xianhua/mtx/">满天星</a>
+				</span>
+				<span>
+					
+					<a href="https://www.xian.com/xianhua/zs13/">6枝</a>
+					<a href="https://www.xian.com/xianhua/zs16/">8枝</a>
+					<a href="https://www.xian.com/xianhua/zs19/">9枝</a>
+					<a href="https://www.xian.com/xianhua/zs25/">11枝</a>
+					<a href="https://www.xian.com/xianhua/zs29/">12枝</a>
+					<a href="https://www.xian.com/xianhua/zs33/">13枝</a>
+					<a href="https://www.xian.com/xianhua/zs99/">15枝</a>
+					<a href="https://www.xian.com/xianhua/zs16/">16枝</a>
+					<a href="https://www.xian.com/xianhua/zs19/">19枝</a>
+					<a href="https://www.xian.com/xianhua/zs21/">21枝</a>
+					<a href="https://www.xian.com/xianhua/zs25/">25枝</a>
+					<a href="https://www.xian.com/xianhua/zs29/">29枝</a>
+					<a href="https://www.xian.com/xianhua/zs33/">33枝</a>
+					<a href="https://www.xian.com/xianhua/zs66/">66枝</a>
+					<a href="https://www.xian.com/xianhua/zs99/">99枝以上</a>
+				</span>
+			</div>
+		</div>
+	</div>
+	<div class="wrap">
+		<div class="h-list-l"><img src="./鲜家网 _ 会员中心 _ 支付订单_files/h-list_11_img.png" alt=""></div>
+		<div class="h-list-r">
+			
+			<div class="h-list-rt">
+				<span>类别</span><span>用途</span><span>销售价</span>
+			</div>
+			<div class="h-list-rc">
+				
+				<span>
+					
+					<a href="https://www.xian.com/ysh/jdhh/">经典花盒</a>
+					<a href="https://www.xian.com/ysh/ysph/">永生瓶花</a>
+					<a href="https://www.xian.com/ysh/jxmg/">巨型玫瑰</a>
+					<a href="https://www.xian.com/ysh/tsysh/">特色永生花</a>
+					<a href="https://www.xian.com/ysh/yshgz/">永生花公仔</a>
+				</span>
+				<span>
+					
+					<a href="https://www.xian.com/ysh/slr/">送恋人爱人</a>
+					<a href="https://www.xian.com/ysh/szb/">送父母长辈</a>
+					<a href="https://www.xian.com/ysh/sts/">送朋友同事</a>
+				</span>
+				<span>
+					
+					<a href="https://www.xian.com/ysh/jg1/">100-199元</a>
+					<a href="https://www.xian.com/ysh/jg2/">200-299元</a>
+					<a href="https://www.xian.com/ysh/jg3/">300-399元</a>
+					<a href="https://www.xian.com/ysh/jg4/">400-499元</a>
+					<a href="https://www.xian.com/ysh/jg5/">500-599元</a>
+					<a href="https://www.xian.com/ysh/jg6/">600-699元</a>
+					<a href="https://www.xian.com/ysh/jg7/">700元以上</a>
+				</span>
+			</div>
+		</div>
+	</div>
+	<div class="wrap">
+		<div class="h-list-l"><img src="./鲜家网 _ 会员中心 _ 支付订单_files/h-list_15_img.png" alt=""></div>
+		<div class="h-list-r">
+			
+			<div class="h-list-rt">
+				<span>类别</span><span>用途</span><span>适合对象</span><span>销售价</span>
+			</div>
+			<div class="h-list-rc">
+				
+				<span>
+					
+					<a href="https://www.xian.com/lipin/sh/">首饰</a>
+					<a href="https://www.xian.com/lipin/yyh/">音乐盒</a>
+					<a href="https://www.xian.com/lipin/xiangxun/">香薰</a>
+					<a href="https://www.xian.com/lipin/ppgz/">公仔</a>
+					<a href="https://www.xian.com/lipin/cybj/">创意摆件</a>
+					<a href="https://www.xian.com/lipin/qkl/">巧克力</a>
+					<a href="https://www.xian.com/lipin/cyds/">灯饰</a>
+					<a href="https://www.xian.com/lipin/sjq/">水晶球</a>
+					<a href="https://www.xian.com/lipin/shuibei/">水杯</a>
+					<a href="https://www.xian.com/lipin/jiashiqi/">加湿器</a>
+					<a href="https://www.xian.com/lipin/anmoyi/">按摩仪</a>
+				</span>
+				<span>
+					
+					<a href="https://www.xian.com/lipin/srlp/">生日礼品</a>
+					<a href="https://www.xian.com/lipin/yhqalp/">约会礼品</a>
+					<a href="https://www.xian.com/lipin/jhlp/">结婚礼品</a>
+					<a href="https://www.xian.com/lipin/gxzflp/">祝福礼品</a>
+					<a href="https://www.xian.com/lipin/bftwlp/">拜访礼品</a>
+					<a href="https://www.xian.com/lipin/jhjyrlp/">纪念日礼品</a>
+					<a href="https://www.xian.com/lipin/qklp/">乔迁礼品</a>
+					<a href="https://www.xian.com/lipin/jjlp/">家居礼品</a>
+				</span>
+				<span>
+					
+					<a href="https://www.xian.com/lipin/snrqzlp/">送恋人</a>
+					<a href="https://www.xian.com/lipin/spytslp/">送朋友</a>
+					<a href="https://www.xian.com/lipin/skhlp/">送客户</a>
+					<a href="https://www.xian.com/lipin/snslp/">送老师</a>
+					<a href="https://www.xian.com/lipin/sxhlp/">送小孩</a>
+					<a href="https://www.xian.com/lipin/sndlp/">送领导</a>
+					<a href="https://www.xian.com/lipin/sfmzblp/">送长辈</a>
+				</span>
+				<span>
+					
+					<a href="https://www.xian.com/lipin/j1/">120元以下</a>
+					<a href="https://www.xian.com/lipin/j2/">120-180元</a>
+					<a href="https://www.xian.com/lipin/j3/">180-300元</a>
+					<a href="https://www.xian.com/lipin/j4/">300-500元</a>
+					<a href="https://www.xian.com/lipin/j5/">500元以上</a>
+				</span>
+			</div>
+		</div>
+	</div>
+</div>
+
+	<div class="wrap nav">
+		<a href="https://www.xian.com/">鲜家首页</a><span>&gt;</span><a href="https://www.xian.com/member/">会员中心</a><span>&gt;</span>支付订单
+	</div>
+
+	<div class="wrap">
+		<div class="shoppinglist-info">
+			<div class="sl-title">收货信息</div>
+			<div class="sl-content">
+				<div class="sl-content-l">
+					<div>
+						<span class="span-t">配送地址</span>
+						湖南省 - 长沙市 - 开福区
+					</div>
+					<div>
+						<span class="span-t locinfo-t">详细地址</span>
+						开福区蔡锷北路司马里38号北大青鸟
+					</div>
+					<div>
+						<span class="span-t">收货人</span>
+						黄林红 18173988632
+					</div>
+				</div>
+				<div class="sl-content-r" style="width:510px;">
+					<p style="line-height:25px;padding:0 20px;">送达时间：2019-11-25 不限时段<br>
+订货电话：18173988632<br>
+订单来源：鲜家电脑<br>
+留言信息：<br>
+我的情人节里没有情人，只有老婆你，你是我的最爱，今天是，明天是，直到我死去我的心中也只有你!七夕情人节快乐，老婆!</p>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+
+		<div class="h40"></div>
+		<table class="table">
+			<thead>
+				<tr>
+					<th class="table-goods">商品列表</th>
+					<th>数量</th>
+					<th>支付金额</th>
+				</tr>
+			</thead>
+			<tbody>
+				
+				<tr>
+					<td class="table-goods">
+						<div class="table-img">
+							<img data-lazy="//www.xian.com/upload/image/2019-06/14/17331_c84e.jpg" alt="" width="90" height="90" src="./鲜家网 _ 会员中心 _ 支付订单_files/17331_c84e.jpg">
+						</div>
+						<div class="table-info">
+							<span class="table-info-t1">今生与你相伴·9枝红玫瑰韩式花束</span>
+							<span class="table-info-t2"></span>
+						</div>
+					</td>
+					<td><span>1</span></td>
+					<td>¥ <span>128.00</span></td>
+				</tr>
+			</tbody>
+		</table>
+
+		<div class="h40"></div>
+		<div class="payment">
+			<label class="left input-label" style="width:95px;">选择支付方式</label>
+			<div class="left" style="width:630px;">
+				<ul class="payment_list clearfix">
+					
+					<li data-id="9" data-name="微信支付" data-fee="0.00" data-price="128.00" data-url="/shop/order/submit/order/185250/payment/9/" class="active">
+						<img src="./鲜家网 _ 会员中心 _ 支付订单_files/pay_wechat.gif" title="微信支付" width="126" height="41">
+						<i class="icon"></i>
+					</li>
+					<li data-id="6" data-name="支付宝" data-fee="0.00" data-price="128.00" data-url="/shop/order/submit/order/185250/payment/6/">
+						<img src="./鲜家网 _ 会员中心 _ 支付订单_files/pay_alipay.gif" title="支付宝" width="126" height="41">
+						<i class="icon"></i>
+					</li>
+				</ul>
+			</div>
+			<div class="clear"></div>
+		</div>
+
+		<div class="total">
+			<div class="checkall"></div>
+			<div class="totalpay">
+				<span>支付金额：<span class="totalnum">￥<span class="totalPrice">128</span></span></span>
+				<span><a class="pay pay-submit">立即支付</a></span>
+			</div>
+		</div>
+
+		<div class="h60"></div>
+	</div>
+
+	<div class="footer ">
+	<div class="wrap">
+		<div class=" footer-items">
+			<div class="footer-item footer-link bdsharebuttonbox">
+				<a class="hover footer-link-wx" href="javascript:;" data-cmd="weixin"></a>
+				<a class="hover footer-link-qq" href="javascript:;" data-cmd="qzone"></a>
+				<a class="hover footer-link-wb" href="javascript:;" data-cmd="tsina"></a>
+				<p>Copyright © 2018 鲜家 All rights reserved.<br>Powered by Bo Wen Technology Co., Ltd.<br>工信部备：辽ICP备18014953号-2<br>公安部备：21010202000602</p>
+			</div>
+			<div class="footer-item r_code">
+				<img data-lazy="//www.xian.com/theme/xian.com/default/static/img/r_code.png" alt="" src="./鲜家网 _ 会员中心 _ 支付订单_files/r_code.png">
+				<p>微信关注鲜家，立享优惠</p>
+				<script type="text/javascript" src="./鲜家网 _ 会员中心 _ 支付订单_files/mobile.js.下载"></script>
+			</div>
+			<div class="footer-item footer-others">
+				<div class="footer-other">
+					<div class="footer-other-link">
+						<span><a href="https://www.xian.com/service/210.html">售后服务</a></span>
+						<span><a href="https://www.xian.com/tongcheng/">同城鲜花</a></span>
+						<span><a href="https://www.xian.com/service/200.html">关于我们</a></span>
+					</div>
+					<div class="footer-other-tel">全国订购热线:<span>400-888-1571</span></div>
+					<div class="footer-other-tel">商务合作热线:<span>024-31128100</span></div>
+					<div class="footer-other-customs">
+						<a class="hover" href="javascript:;" onclick="openChat();">在线客服</a>
+					</div>
+				</div>
+			</div>
+		</div> 
+	</div>
+</div>
+<script type="text/javascript" src="./鲜家网 _ 会员中心 _ 支付订单_files/leyu-mini.js.下载"></script><link rel="stylesheet" href="./鲜家网 _ 会员中心 _ 支付订单_files/chat.min.css">
+<script src="./鲜家网 _ 会员中心 _ 支付订单_files/jquery.bwChat.min.js.下载"></script>
+<script>
+function openChat(e){
+   $(e).bwChat({
+        group: 10080395,
+        channel: 33114,
+        colorStyle:'#ccaa7a',
+        logo:'/static/bwChat/img/logo.png',
+        emotpath:'/static/bwChat/img/emot/',
+        tip:'鲜家网',
+        h5Notify:false,
+        avator:'/static/bwChat/img/CustomerService.png',
+        mobile:false,
+        email:false,
+        phone:'400-888-1571',
+        work:'08:00 ~ 23:00',
+        obj:$('.cservice')
+    })
+}
+</script>
+
+
+
+</body></html>
